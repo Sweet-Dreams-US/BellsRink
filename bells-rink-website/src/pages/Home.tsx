@@ -142,7 +142,7 @@ const Home: React.FC = () => {
             <div className="session-card special">
               <div className="session-header">
                 <h3>Wednesday Night Adult Skate/Dance</h3>
-                <div className="session-time">8:00 PM - 11:30 PM</div>
+                <div className="session-time">8:00 PM - 10:00 PM</div>
               </div>
               <div className="session-price">$10 Admission</div>
               <p>21+ Only • Includes skate rental</p>

@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
           <div className="footer-hours">
             <div className="hour-item">
               <span>Wednesday:</span>
-              <span>8 PM - 11:30 PM (21+)</span>
+              <span>8 PM - 10 PM (21+)</span>
             </div>
             <div className="hour-item">
               <span>Friday:</span>
