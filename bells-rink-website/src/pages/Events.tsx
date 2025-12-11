@@ -1,38 +1,27 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import './Events.css';
 
 const Events: React.FC = () => {
-  const events = [
-    {
-      date: 'Friday, December 5th',
-      name: null,
-      time: null,
-      icon: '🎄',
-      color: 'holiday'
-    },
+  const allEvents = useMemo(() => [
     {
       date: 'Saturday, December 6th',
+      dateValue: new Date('2025-12-06'),
       name: 'Kpop Demon Hunter Skate',
       time: '6:30 PM - 9:00 PM',
       icon: '🎵',
       color: 'music'
     },
     {
-      date: 'Saturday, December 13th',
-      name: null,
-      time: null,
-      icon: '⛸️',
-      color: 'default'
-    },
-    {
       date: 'Sunday, December 14th',
+      dateValue: new Date('2025-12-14'),
       name: 'Toy Drive',
-      time: null,
+      time: 'During Regular Hours',
       icon: '🎁',
       color: 'special'
     },
     {
       date: 'Monday, December 15th',
+      dateValue: new Date('2025-12-15'),
       name: 'Praise And Worship Skate',
       time: '6:00 PM - 8:00 PM',
       icon: '✝️',
@@ -40,6 +29,7 @@ const Events: React.FC = () => {
     },
     {
       date: 'Monday, December 22nd',
+      dateValue: new Date('2025-12-22'),
       name: '2 For 1 School\'s Out Skate',
       time: '12:30 PM - 3:00 PM',
       icon: '🎓',
@@ -47,6 +37,7 @@ const Events: React.FC = () => {
     },
     {
       date: 'Friday, December 29th',
+      dateValue: new Date('2025-12-29'),
       name: '2 For 1 School\'s Out Skate & 80\'s Night',
       time: '12:30 PM - 3:00 PM & 6:30 PM - 9:00 PM',
       icon: '🎸',
@@ -54,6 +45,7 @@ const Events: React.FC = () => {
     },
     {
       date: 'Monday, December 29th',
+      dateValue: new Date('2025-12-29'),
       name: '2 For 1 School\'s Out Skate',
       time: '12:30 PM - 3:00 PM',
       icon: '🎓',
@@ -61,12 +53,23 @@ const Events: React.FC = () => {
     },
     {
       date: 'Wednesday, December 31st',
+      dateValue: new Date('2025-12-31'),
       name: 'Noon Year\'s Eve Kids Bash',
       time: '12:00 PM - 3:00 PM',
       icon: '🎉',
       color: 'celebration'
     }
-  ];
+  ], []);
+
+  const { upcomingEvents, pastEvents } = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcoming = allEvents.filter(event => event.dateValue >= today);
+    const past = allEvents.filter(event => event.dateValue < today).reverse();
+
+    return { upcomingEvents: upcoming, pastEvents: past };
+  }, [allEvents]);
 
   return (
     <div className="events">
@@ -98,32 +101,49 @@ const Events: React.FC = () => {
         </div>
       </section>
 
-      {/* Events Calendar Section */}
+      {/* Upcoming Events Calendar Section */}
       <section className="events-calendar">
         <div className="events-background">
           <img src="/images/busynightkidsskating.webp" alt="Kids skating at night" className="background-image" />
         </div>
         <div className="container">
-          <h2>December 2025 Events</h2>
-          <div className="events-grid">
-            {events.map((event, index) => (
-              <div key={index} className={`event-card ${event.color}`}>
-                <div className="event-icon">{event.icon}</div>
-                <div className="event-date">{event.date}</div>
-                {event.name && (
+          <h2>Upcoming Events</h2>
+          {upcomingEvents.length > 0 ? (
+            <div className="events-grid">
+              {upcomingEvents.map((event, index) => (
+                <div key={index} className={`event-card ${event.color}`}>
+                  <div className="event-icon">{event.icon}</div>
+                  <div className="event-date">{event.date}</div>
                   <div className="event-name">{event.name}</div>
-                )}
-                {event.time && (
                   <div className="event-time">{event.time}</div>
-                )}
-                {!event.name && !event.time && (
-                  <div className="event-tba">Details Coming Soon</div>
-                )}
-              </div>
-            ))}
-          </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="no-events">No upcoming events scheduled. Check back soon!</p>
+          )}
         </div>
       </section>
+
+      {/* Past Events Section */}
+      {pastEvents.length > 0 && (
+        <section className="past-events-section">
+          <div className="container">
+            <h2>Past Events - See What You Missed!</h2>
+            <div className="events-grid past-events-grid">
+              {pastEvents.map((event, index) => (
+                <div key={index} className={`event-card past-event ${event.color}`}>
+                  <div className="past-badge">Past Event</div>
+                  <div className="event-icon">{event.icon}</div>
+                  <div className="event-date">{event.date}</div>
+                  <div className="event-name">{event.name}</div>
+                  <div className="event-time">{event.time}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Event Highlights Section */}
       <section className="event-highlights">

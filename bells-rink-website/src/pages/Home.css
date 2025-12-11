@@ -422,6 +422,11 @@
   font-weight: 600;
 }
 
+.session-card.glow .session-header h3 {
+  color: #39ff14;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
 .session-time {
   font-size: 1.1rem;
   font-weight: 500;

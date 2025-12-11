@@ -1,8 +1,64 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Newsletter from '../components/Newsletter';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const allSpecialEvents = useMemo(() => {
+    return [
+      {
+        name: 'Kpop Demon Hunter Skate',
+        date: 'Saturday, Dec 6th',
+        time: '6:30-9PM',
+        dateValue: new Date('2025-12-06'),
+        icon: '🎵'
+      },
+      {
+        name: 'Toy Drive',
+        date: 'Sunday, Dec 14th',
+        time: 'During Regular Hours',
+        dateValue: new Date('2025-12-14'),
+        icon: '🎁'
+      },
+      {
+        name: 'Praise & Worship Skate',
+        date: 'Monday, Dec 15th',
+        time: '6-8PM',
+        dateValue: new Date('2025-12-15'),
+        icon: '✝️'
+      },
+      {
+        name: '2 For 1 School\'s Out',
+        date: 'Monday, Dec 22nd',
+        time: '12:30-3PM',
+        dateValue: new Date('2025-12-22'),
+        icon: '🎓'
+      },
+      {
+        name: '80\'s Night & 2 For 1',
+        date: 'Friday, Dec 29th',
+        time: '12:30-3PM & 6:30-9PM',
+        dateValue: new Date('2025-12-29'),
+        icon: '🎸'
+      },
+      {
+        name: 'Noon Year\'s Eve Kids Bash',
+        date: 'Wednesday, Dec 31st',
+        time: '12-3PM',
+        dateValue: new Date('2025-12-31'),
+        icon: '🎉'
+      }
+    ];
+  }, []);
+
+  const upcomingEvents = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return allSpecialEvents
+      .filter(event => event.dateValue >= today)
+      .slice(0, 6);
+  }, [allSpecialEvents]);
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -85,11 +141,11 @@ const Home: React.FC = () => {
           <div className="sessions-grid">
             <div className="session-card special">
               <div className="session-header">
-                <h3>Wednesday Night Rewind</h3>
-                <div className="session-time">8:00 PM - 10:00 PM</div>
+                <h3>Wednesday Night Adult Skate/Dance</h3>
+                <div className="session-time">8:00 PM - 11:30 PM</div>
               </div>
-              <div className="session-price">$7 per skater</div>
-              <p>Includes regular skate rental</p>
+              <div className="session-price">$10 Admission</div>
+              <p>21+ Only • Includes skate rental</p>
             </div>
 
             <div className="session-card popular">
@@ -149,48 +205,21 @@ const Home: React.FC = () => {
           <div className="upcoming-sessions">
             <h3>Special Events This Month</h3>
             <div className="upcoming-list">
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">🎵</span>
-                <div className="event-details">
-                  <strong>Kpop Demon Hunter Skate</strong>
-                  <span className="event-date">Saturday, Dec 6th • 6:30-9PM</span>
-                </div>
-              </div>
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">🎁</span>
-                <div className="event-details">
-                  <strong>Toy Drive</strong>
-                  <span className="event-date">Sunday, Dec 14th</span>
-                </div>
-              </div>
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">✝️</span>
-                <div className="event-details">
-                  <strong>Praise & Worship Skate</strong>
-                  <span className="event-date">Monday, Dec 15th • 6-8PM</span>
-                </div>
-              </div>
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">🎓</span>
-                <div className="event-details">
-                  <strong>2 For 1 School's Out</strong>
-                  <span className="event-date">Monday, Dec 22nd • 12:30-3PM</span>
-                </div>
-              </div>
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">🎸</span>
-                <div className="event-details">
-                  <strong>80's Night & 2 For 1</strong>
-                  <span className="event-date">Friday, Dec 29th • 12:30-3PM & 6:30-9PM</span>
-                </div>
-              </div>
-              <div className="upcoming-item special-event">
-                <span className="upcoming-icon">🎉</span>
-                <div className="event-details">
-                  <strong>Noon Year's Eve Kids Bash</strong>
-                  <span className="event-date">Wednesday, Dec 31st • 12-3PM</span>
-                </div>
-              </div>
+              {upcomingEvents.length > 0 ? (
+                upcomingEvents.map((event, index) => (
+                  <div key={index} className="upcoming-item special-event">
+                    <span className="upcoming-icon">{event.icon}</span>
+                    <div className="event-details">
+                      <strong>{event.name}</strong>
+                      <span className="event-date">
+                        {event.date}{event.time ? ` • ${event.time}` : ''}
+                      </span>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="no-upcoming-events">No upcoming events at this time. Check back soon!</p>
+              )}
             </div>
             <div className="events-cta-home">
               <a href="/events" className="view-all-events">View All Events →</a>

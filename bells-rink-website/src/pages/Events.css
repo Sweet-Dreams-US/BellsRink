@@ -267,6 +267,50 @@
   margin-top: 1rem;
 }
 
+.no-events {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 3rem 0;
+}
+
+/* Past Events Section */
+.past-events-section {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.past-events-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.past-event {
+  opacity: 0.7;
+  position: relative;
+}
+
+.past-event:hover {
+  opacity: 0.85;
+}
+
+.past-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(102, 126, 234, 0.9);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Event Highlights Section */
 .event-highlights {
   padding: 5rem 0;
