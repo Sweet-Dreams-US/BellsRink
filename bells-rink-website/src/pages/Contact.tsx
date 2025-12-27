@@ -80,8 +80,8 @@ const Contact: React.FC = () => {
                 <h3>Hours</h3>
                 <div className="hours-list">
                   <div className="hour-row">
-                    <span>Wednesday:</span>
-                    <span>8 PM - 10 PM (21+)</span>
+                    <span>Tuesday:</span>
+                    <span>8 PM - 10:30 PM (21+)</span>
                   </div>
                   <div className="hour-row">
                     <span>Friday:</span>
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                     <span>12 PM - 3 PM</span>
                   </div>
                   <div className="hour-row closed">
-                    <span>Mon, Tue, Thu:</span>
+                    <span>Mon, Wed, Thu:</span>
                     <span>Closed</span>
                   </div>
                 </div>
