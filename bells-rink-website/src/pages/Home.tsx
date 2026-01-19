@@ -97,19 +97,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Schools Out Notice */}
-      <section className="special-notice">
-        <div className="container">
-          <div className="notice-banner">
-            <img src="/images/santaSkater.png" alt="Santa the Skater" className="notice-character" />
-            <div className="notice-content">
-              <h3>Schools Out Skate for Christmas Break!</h3>
-              <p>$8 per skater includes a hot dog and drink</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section className="services">
         <div className="services-background">
