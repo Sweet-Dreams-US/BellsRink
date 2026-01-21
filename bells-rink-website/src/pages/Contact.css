@@ -239,6 +239,21 @@
   gap: 1.5rem;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  border: 1px solid #fecaca;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -398,6 +413,10 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   .contact-hero .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;

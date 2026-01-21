@@ -1,11 +1,75 @@
-import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import React, { useState } from 'react';
 import './Contact.css';
 
-const Contact: React.FC = () => {
-  const [state, handleSubmit] = useForm("xldwzory");
+const GOOGLE_SHEETS_URL = 'https://script.google.com/a/macros/sweetdreamsmusic.com/s/AKfycbw-Yqor__lJBpIp6H0oRyqsFtQl_MOmjnrbFUDZ2Di1l1pPR4PNq6QMVXgvkct2NU4HpA/exec';
 
-  if (state.succeeded) {
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    birthday: '',
+    phone: '',
+    email: '',
+    subject: '',
+    howDidYouHear: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'succeeded' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const formatPhone = (value: string) => {
+    const phoneNumber = value.replace(/[^\d]/g, '');
+    const phoneNumberLength = phoneNumber.length;
+    if (phoneNumberLength < 4) return phoneNumber;
+    if (phoneNumberLength < 7) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    }
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedPhone = formatPhone(e.target.value);
+    setFormData(prev => ({ ...prev, phone: formattedPhone }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      await fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'First Name': formData.firstName,
+          'Last Name': formData.lastName,
+          'Birthday': formData.birthday,
+          'Phone': formData.phone,
+          'Email': formData.email,
+          'Subject': formData.subject,
+          'How did you hear about us?': formData.howDidYouHear,
+          'Message': formData.message
+        })
+      });
+
+      // With no-cors mode, we can't read the response, so we assume success
+      setStatus('succeeded');
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again or call us directly.');
+    }
+  };
+
+  if (status === 'succeeded') {
     return (
       <div className="contact">
         <div className="contact-hero">
@@ -111,69 +175,115 @@ const Contact: React.FC = () => {
               </div>
               
               <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name">Name *</label>
-                  <input
-                    id="name"
-                    type="text" 
-                    name="name"
-                    required
-                    placeholder="Your full name"
-                  />
-                  <ValidationError 
-                    prefix="Name" 
-                    field="name"
-                    errors={state.errors}
-                  />
+                {errorMessage && (
+                  <div className="form-error">{errorMessage}</div>
+                )}
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="firstName">First Name *</label>
+                    <input
+                      id="firstName"
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      placeholder="First name"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="lastName">Last Name *</label>
+                    <input
+                      id="lastName"
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      placeholder="Last name"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="email">Email *</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      placeholder="(123) 456-7890"
+                      maxLength={14}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="birthday">Birthday</label>
+                    <input
+                      id="birthday"
+                      type="date"
+                      name="birthday"
+                      value={formData.birthday}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="subject">Subject *</label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Select a topic</option>
+                      <option value="General Question">General Question</option>
+                      <option value="Birthday Party Booking">Birthday Party Booking</option>
+                      <option value="Group Event">Group Event</option>
+                      <option value="Hours & Pricing Info">Hours & Pricing Info</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email *</label>
-                  <input
-                    id="email"
-                    type="email" 
-                    name="email"
-                    required
-                    placeholder="your.email@example.com"
-                  />
-                  <ValidationError 
-                    prefix="Email" 
-                    field="email"
-                    errors={state.errors}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phone">Phone</label>
-                  <input
-                    id="phone"
-                    type="tel" 
-                    name="phone"
-                    placeholder="(123) 456-7890"
-                  />
-                  <ValidationError 
-                    prefix="Phone" 
-                    field="phone"
-                    errors={state.errors}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="subject">Subject *</label>
-                  <select id="subject" name="subject" required>
-                    <option value="">Select a topic</option>
-                    <option value="general">General Question</option>
-                    <option value="birthday-party">Birthday Party Booking</option>
-                    <option value="group-event">Group Event</option>
-                    <option value="hours-info">Hours & Pricing Info</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="other">Other</option>
+                  <label htmlFor="howDidYouHear">How did you hear about us?</label>
+                  <select
+                    id="howDidYouHear"
+                    name="howDidYouHear"
+                    value={formData.howDidYouHear}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="Google Search">Google Search</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Friend/Family">Friend/Family</option>
+                    <option value="Drove By">Drove By</option>
+                    <option value="Returning Customer">Returning Customer</option>
+                    <option value="Other">Other</option>
                   </select>
-                  <ValidationError 
-                    prefix="Subject" 
-                    field="subject"
-                    errors={state.errors}
-                  />
                 </div>
 
                 <div className="form-group">
@@ -181,23 +291,20 @@ const Contact: React.FC = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={5}
                     required
                     placeholder="Tell us how we can help you..."
                   />
-                  <ValidationError 
-                    prefix="Message" 
-                    field="message"
-                    errors={state.errors}
-                  />
                 </div>
 
-                <button 
-                  type="submit" 
-                  disabled={state.submitting}
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
                   className="submit-button"
                 >
-                  {state.submitting ? 'Sending...' : 'Send Message'}
+                  {status === 'submitting' ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
