@@ -58,6 +58,22 @@ const Events: React.FC = () => {
       time: '12:00 PM - 3:00 PM',
       icon: '🎉',
       color: 'celebration'
+    },
+    {
+      date: 'Monday, January 26th',
+      dateValue: new Date('2026-01-26'),
+      name: 'Praise And Worship Skate',
+      time: '6:00 PM - 8:00 PM',
+      icon: '✝️',
+      color: 'worship'
+    },
+    {
+      date: 'Friday, January 30th',
+      dateValue: new Date('2026-01-30'),
+      name: 'Afternoon Homeschool Skate',
+      time: '12:00 PM - 2:00 PM',
+      icon: '📚',
+      color: 'special'
     }
   ], []);
 

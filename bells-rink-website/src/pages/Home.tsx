@@ -46,6 +46,20 @@ const Home: React.FC = () => {
         time: '12-3PM',
         dateValue: new Date('2025-12-31'),
         icon: '🎉'
+      },
+      {
+        name: 'Praise & Worship Skate',
+        date: 'Monday, Jan 26th',
+        time: '6-8PM',
+        dateValue: new Date('2026-01-26'),
+        icon: '✝️'
+      },
+      {
+        name: 'Afternoon Homeschool Skate',
+        date: 'Friday, Jan 30th',
+        time: '12-2PM',
+        dateValue: new Date('2026-01-30'),
+        icon: '📚'
       }
     ];
   }, []);
