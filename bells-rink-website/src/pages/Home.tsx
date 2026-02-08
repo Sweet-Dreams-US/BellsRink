@@ -114,7 +114,7 @@ const Home: React.FC = () => {
       {/* Services Section */}
       <section className="services">
         <div className="services-background">
-          <img src="/images/rollerskatebusy.jpeg" alt="Roller skating fun" className="background-image" />
+          <img src="/images/KpopNight/busyrinkfeetangle.webp" alt="Roller skating fun" className="background-image" />
         </div>
         <div className="container">
           <h2>What We Offer</h2>
