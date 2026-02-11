@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
 
-const GOOGLE_SHEETS_URL = 'https://script.google.com/a/macros/sweetdreamsmusic.com/s/AKfycbw-Yqor__lJBpIp6H0oRyqsFtQl_MOmjnrbFUDZ2Di1l1pPR4PNq6QMVXgvkct2NU4HpA/exec';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzpxgZEf9siRcwvGQbMkudtZ9SzV3FSaeItjWFB9Qm7ZhVJizM5NZDkojakcUvT0Sn7BQ/exec';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'text/plain'
         },
         body: JSON.stringify({
           'First Name': formData.firstName,

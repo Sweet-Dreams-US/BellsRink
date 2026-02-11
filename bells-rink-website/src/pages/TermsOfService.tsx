@@ -8,7 +8,7 @@ const TermsOfService: React.FC = () => {
       <section className="legal-hero">
         <div className="container">
           <h1>Terms of Service</h1>
-          <p className="legal-date">Effective Date: January 1, 2025</p>
+          <p className="legal-date">Effective Date: February 8, 2026</p>
         </div>
       </section>
 
@@ -186,7 +186,71 @@ const TermsOfService: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>12. Changes to Terms</h2>
+              <h2>12. SMS/Text Message Marketing Terms</h2>
+              <h3>Program Name</h3>
+              <p>
+                Bell's Skating Rink Text Alerts
+              </p>
+              <h3>Program Description</h3>
+              <p>
+                By opting in to Bell's Skating Rink Text Alerts, you agree to receive recurring
+                automated promotional and informational text messages from Bell's Skating Rink.
+                Messages may include special event announcements, schedule updates, exclusive deals
+                and promotions, and general rink announcements.
+              </p>
+              <h3>Message Frequency</h3>
+              <p>
+                Message frequency varies. You may receive up to 10 text messages per month.
+              </p>
+              <h3>Message and Data Rates</h3>
+              <p>
+                <strong>Message and data rates may apply.</strong> Please contact your wireless
+                carrier for details about your messaging plan. Bell's Skating Rink is not
+                responsible for any charges incurred from your carrier.
+              </p>
+              <h3>Opt-In</h3>
+              <p>
+                You may opt in to receive text messages from Bell's Skating Rink by:
+              </p>
+              <ul>
+                <li>Providing your phone number on our website at bellsrink.com and checking the box agreeing to receive text messages</li>
+                <li>Texting <strong>START</strong> or <strong>JOIN</strong> to our designated number</li>
+              </ul>
+              <p>
+                By opting in, you confirm that you are the owner or authorized user of the mobile
+                device and phone number provided, and that you consent to receive text messages
+                from Bell's Skating Rink. Consent is not a condition of any purchase.
+              </p>
+              <h3>Opt-Out</h3>
+              <p>
+                You can cancel text messages at any time. To stop receiving messages, text
+                <strong> STOP</strong> to any message you receive from Bell's Skating Rink. After
+                sending STOP, you will receive one final confirmation message. No further messages
+                will be sent unless you re-subscribe.
+              </p>
+              <h3>Help</h3>
+              <p>
+                If you are experiencing issues with our text message program, reply
+                <strong> HELP</strong> to any message for assistance, or contact us directly at
+                (260) 749-8214.
+              </p>
+              <h3>Privacy</h3>
+              <p>
+                Your privacy is important to us. We will not sell, share, or rent your mobile
+                phone number to any third parties for marketing purposes. For full details, see
+                our <a href="/privacy">Privacy Policy</a>. Carriers are not liable for delayed
+                or undelivered messages.
+              </p>
+              <h3>Supported Carriers</h3>
+              <p>
+                Our text message program is supported by all major US carriers including AT&T,
+                Verizon, T-Mobile, Sprint, and others. However, service availability may vary
+                by carrier.
+              </p>
+            </div>
+
+            <div className="legal-section">
+              <h2>13. Changes to Terms</h2>
               <p>
                 Bell's Skating Rink reserves the right to modify these Terms of Service at any
                 time. Changes will be effective immediately upon posting. Your continued use of
@@ -195,7 +259,7 @@ const TermsOfService: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>13. Governing Law</h2>
+              <h2>14. Governing Law</h2>
               <p>
                 These Terms of Service shall be governed by and construed in accordance with the
                 laws of the State of Indiana, without regard to its conflict of law provisions.
@@ -203,7 +267,7 @@ const TermsOfService: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>14. Contact Information</h2>
+              <h2>15. Contact Information</h2>
               <p>
                 If you have any questions about these Terms of Service, please contact us:
               </p>

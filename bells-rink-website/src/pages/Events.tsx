@@ -74,6 +74,62 @@ const Events: React.FC = () => {
       time: '12:00 PM - 2:00 PM',
       icon: '📚',
       color: 'special'
+    },
+    {
+      date: 'Friday, February 13th',
+      dateValue: new Date('2026-02-13'),
+      name: 'Afternoon Homeschool Skate',
+      time: '12:00 PM - 2:00 PM',
+      icon: '📚',
+      color: 'special'
+    },
+    {
+      date: 'Saturday, February 14th',
+      dateValue: new Date('2026-02-14'),
+      name: 'Valentine\'s Day Late Skate',
+      time: '9:00 PM - 11:00 PM',
+      icon: '❤️',
+      color: 'celebration'
+    },
+    {
+      date: 'Monday, February 16th',
+      dateValue: new Date('2026-02-16'),
+      name: 'Schools Out Skate',
+      time: '12:30 PM - 3:00 PM',
+      icon: '🎓',
+      color: 'deal'
+    },
+    {
+      date: 'Wednesday, February 18th',
+      dateValue: new Date('2026-02-18'),
+      name: 'Dollar Skate',
+      time: '6:00 PM - 8:00 PM',
+      icon: '💰',
+      color: 'deal'
+    },
+    {
+      date: 'Wednesday, February 25th',
+      dateValue: new Date('2026-02-25'),
+      name: 'Dollar Skate',
+      time: '6:00 PM - 8:00 PM',
+      icon: '💰',
+      color: 'deal'
+    },
+    {
+      date: 'Friday, February 27th',
+      dateValue: new Date('2026-02-27'),
+      name: 'Afternoon Homeschool Skate',
+      time: '12:00 PM - 2:00 PM',
+      icon: '📚',
+      color: 'special'
+    },
+    {
+      date: 'Saturday, February 28th',
+      dateValue: new Date('2026-02-28'),
+      name: 'Roll-N-Glow with DJ Crazy K!',
+      time: '6:30 PM - 9:00 PM',
+      icon: '🎵',
+      color: 'music'
     }
   ], []);
 

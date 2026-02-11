@@ -8,7 +8,7 @@ const PrivacyPolicy: React.FC = () => {
       <section className="legal-hero">
         <div className="container">
           <h1>Privacy Policy</h1>
-          <p className="legal-date">Effective Date: January 1, 2025</p>
+          <p className="legal-date">Effective Date: February 8, 2026</p>
         </div>
       </section>
 
@@ -51,6 +51,11 @@ const PrivacyPolicy: React.FC = () => {
                 <li>Message content</li>
                 <li>Inquiry type</li>
               </ul>
+              <h3>SMS/Text Message Signup</h3>
+              <ul>
+                <li>Mobile phone number</li>
+                <li>Opt-in consent for text message marketing</li>
+              </ul>
             </div>
 
             <div className="legal-section">
@@ -61,6 +66,7 @@ const PrivacyPolicy: React.FC = () => {
               <ul>
                 <li><strong>Party Reservations:</strong> To process and confirm your birthday party booking, communicate event details, and provide customer service</li>
                 <li><strong>Newsletter:</strong> To send you updates about special events, promotions, and news about Bell's Skating Rink</li>
+                <li><strong>SMS/Text Messages:</strong> To send you promotional text messages about special events, deals, schedule updates, and announcements (with your express consent)</li>
                 <li><strong>Contact Inquiries:</strong> To respond to your questions, comments, or requests for information</li>
                 <li><strong>Service Improvement:</strong> To better understand our customers' needs and improve our facility and services</li>
                 <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
@@ -129,7 +135,49 @@ const PrivacyPolicy: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>6. Children's Privacy</h2>
+              <h2>6. SMS/Text Message Marketing</h2>
+              <h3>Consent</h3>
+              <p>
+                By providing your mobile phone number and opting in to our text message program,
+                you consent to receive recurring promotional and informational text messages from
+                Bell's Skating Rink, including messages about special events, deals, schedule
+                changes, and announcements. Consent is not a condition of purchase.
+              </p>
+              <h3>Message Frequency</h3>
+              <p>
+                Message frequency varies. You may receive up to 10 messages per month.
+              </p>
+              <h3>Message and Data Rates</h3>
+              <p>
+                Message and data rates may apply. Check with your mobile carrier for details
+                about your text messaging plan.
+              </p>
+              <h3>Opt-Out</h3>
+              <p>
+                You can opt out of text messages at any time by replying <strong>STOP</strong> to
+                any message you receive from us. After opting out, you will receive one final
+                confirmation message and will no longer receive text messages from Bell's Skating Rink.
+              </p>
+              <h3>Help</h3>
+              <p>
+                For help with our text message program, reply <strong>HELP</strong> to any message
+                or contact us at (260) 749-8214.
+              </p>
+              <h3>Data Protection</h3>
+              <div className="privacy-highlight">
+                <p>
+                  <strong>We do not sell, share, or rent your phone number or any personal information
+                  collected through our SMS program to any third parties for their marketing purposes.</strong>
+                </p>
+              </div>
+              <p>
+                Your phone number is used solely for the purpose of sending you Bell's Skating Rink
+                text message communications. Carriers are not liable for delayed or undelivered messages.
+              </p>
+            </div>
+
+            <div className="legal-section">
+              <h2>7. Children's Privacy</h2>
               <p>
                 Bell's Skating Rink is a family-friendly facility that serves children and
                 families. We do not knowingly collect personal information from children under
@@ -151,7 +199,7 @@ const PrivacyPolicy: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>7. Data Security</h2>
+              <h2>8. Data Security</h2>
               <p>
                 We take reasonable measures to protect your personal information from
                 unauthorized access, use, or disclosure. These measures include:
@@ -169,7 +217,7 @@ const PrivacyPolicy: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>8. Your Privacy Rights</h2>
+              <h2>9. Your Privacy Rights</h2>
               <p>
                 You have the right to:
               </p>
@@ -182,12 +230,12 @@ const PrivacyPolicy: React.FC = () => {
               </ul>
               <p>
                 To exercise any of these rights, please contact us using the information
-                provided in Section 11.
+                provided in Section 12.
               </p>
             </div>
 
             <div className="legal-section">
-              <h2>9. Data Retention</h2>
+              <h2>10. Data Retention</h2>
               <p>
                 We retain your personal information only as long as necessary to fulfill the
                 purposes for which it was collected, including:
@@ -195,12 +243,13 @@ const PrivacyPolicy: React.FC = () => {
               <ul>
                 <li>Party reservation records: Retained for business and tax purposes</li>
                 <li>Newsletter subscriptions: Until you unsubscribe</li>
+                <li>SMS subscribers: Until you opt out by replying STOP</li>
                 <li>Contact form inquiries: Deleted after resolution of your inquiry</li>
               </ul>
             </div>
 
             <div className="legal-section">
-              <h2>10. Changes to This Privacy Policy</h2>
+              <h2>11. Changes to This Privacy Policy</h2>
               <p>
                 We may update this Privacy Policy from time to time to reflect changes in our
                 practices or legal requirements. We will post the updated policy on our website
@@ -214,7 +263,7 @@ const PrivacyPolicy: React.FC = () => {
             </div>
 
             <div className="legal-section">
-              <h2>11. Contact Us</h2>
+              <h2>12. Contact Us</h2>
               <p>
                 If you have any questions, concerns, or requests regarding this Privacy Policy
                 or our privacy practices, please contact us:
