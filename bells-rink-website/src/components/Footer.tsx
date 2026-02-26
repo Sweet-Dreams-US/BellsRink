@@ -78,6 +78,7 @@ const Footer: React.FC = () => {
           <p className="footer-legal-links">
             <Link to="/terms">Terms of Service</Link> | <Link to="/privacy">Privacy Policy</Link>
           </p>
+          <p className="footer-developer">Site by <a href="https://sweetdreams.us" target="_blank" rel="noopener noreferrer">Sweet Dreams US</a></p>
         </div>
       </div>
     </footer>
