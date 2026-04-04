@@ -1,4 +1,7 @@
-/* Global App Styles */
+/* ═══════════════════════════════════════════════
+   Global App Styles — 2026 Futuristic Light Theme
+   ═══════════════════════════════════════════════ */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +9,10 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
-  color: #333;
-  background-color: #ffffff;
+  color: var(--text-primary);
+  background-color: var(--bg-deep);
 }
 
 .App {
@@ -22,91 +25,309 @@ main {
   flex: 1;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Container utility */
+/* ── Container ── */
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--container-pad);
 }
 
-/* Button utilities */
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-.btn-secondary {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  border: 2px solid rgba(102, 126, 234, 0.3);
-}
-
-.btn-secondary:hover {
-  background: rgba(102, 126, 234, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Typography */
+/* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  color: #333;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
-h1 {
-  font-size: 3rem;
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+/* Display headings use serif */
+.display-heading {
+  font-family: var(--font-display);
+  font-style: italic;
 }
 
-h2 {
-  font-size: 2.5rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-/* Links */
 a {
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all var(--duration-base) var(--ease-out);
 }
 
-/* Focus states for accessibility */
+/* ── Focus states ── */
 *:focus {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Loading and transition utilities */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════
+   LAYERED BUTTON SYSTEM
+   The signature futuristic multi-layer look
+   ═══════════════════════════════════════════════ */
+
+.btn-layered {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  z-index: 1;
+  transition: all var(--duration-base) var(--ease-out);
+  letter-spacing: 0.01em;
+}
+
+/* Primary layered button — purple glow */
+.btn-layered--primary {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid rgba(124, 107, 245, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(124, 107, 245, 0.15),
+    var(--shadow-glow-sm);
+}
+
+.btn-layered--primary::before,
+.btn-layered--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-layered--primary::before {
+  border: 1px solid rgba(124, 107, 245, 0.3);
+  transform: translate(3px, 3px);
+  opacity: 0.5;
+  z-index: -1;
+  background: rgba(124, 107, 245, 0.12);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--primary::after {
+  border: 1px solid rgba(124, 107, 245, 0.2);
+  transform: translate(6px, 6px);
+  opacity: 0.3;
+  z-index: -2;
+  background: rgba(124, 107, 245, 0.06);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(124, 107, 245, 0.4),
+    var(--shadow-glow-md);
+}
+
+.btn-layered--primary:hover::before {
+  transform: translate(4px, 4px);
+  opacity: 0.6;
+}
+
+.btn-layered--primary:hover::after {
+  transform: translate(8px, 8px);
+  opacity: 0.35;
+}
+
+/* Accent layered button — coral/pink glow */
+.btn-layered--accent {
+  background: var(--color-accent);
+  color: white;
+  border: 1px solid rgba(255, 107, 138, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(255, 107, 138, 0.15),
+    var(--shadow-glow-accent);
+}
+
+.btn-layered--accent::before,
+.btn-layered--accent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-layered--accent::before {
+  border: 1px solid rgba(255, 107, 138, 0.3);
+  transform: translate(3px, 3px);
+  opacity: 0.5;
+  z-index: -1;
+  background: rgba(255, 107, 138, 0.12);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--accent::after {
+  border: 1px solid rgba(255, 107, 138, 0.2);
+  transform: translate(6px, 6px);
+  opacity: 0.3;
+  z-index: -2;
+  background: rgba(255, 107, 138, 0.06);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--accent:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 107, 138, 0.4),
+    0 8px 40px rgba(255, 107, 138, 0.2);
+}
+
+.btn-layered--accent:hover::before {
+  transform: translate(4px, 4px);
+  opacity: 0.6;
+}
+
+.btn-layered--accent:hover::after {
+  transform: translate(8px, 8px);
+  opacity: 0.35;
+}
+
+/* Ghost/glass layered button */
+.btn-layered--ghost {
+  background: rgba(124, 107, 245, 0.06);
+  color: var(--text-primary);
+  border: 1px solid rgba(124, 107, 245, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.btn-layered--ghost::before,
+.btn-layered--ghost::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-layered--ghost::before {
+  border: 1px solid rgba(124, 107, 245, 0.1);
+  transform: translate(3px, 3px);
+  opacity: 0.5;
+  z-index: -1;
+  background: rgba(124, 107, 245, 0.04);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--ghost::after {
+  border: 1px solid rgba(124, 107, 245, 0.06);
+  transform: translate(6px, 6px);
+  opacity: 0.3;
+  z-index: -2;
+  background: rgba(124, 107, 245, 0.02);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--ghost:hover {
+  background: rgba(124, 107, 245, 0.1);
+  border-color: rgba(124, 107, 245, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-layered--ghost:hover::before {
+  transform: translate(4px, 4px);
+  opacity: 0.6;
+}
+
+.btn-layered--ghost:hover::after {
+  transform: translate(8px, 8px);
+  opacity: 0.35;
+}
+
+/* Gold layered button */
+.btn-layered--gold {
+  background: var(--color-gold);
+  color: white;
+  border: 1px solid rgba(240, 168, 48, 0.3);
+  box-shadow: 0 4px 20px rgba(240, 168, 48, 0.15);
+}
+
+.btn-layered--gold::before,
+.btn-layered--gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-layered--gold::before {
+  border: 1px solid rgba(240, 168, 48, 0.3);
+  transform: translate(3px, 3px);
+  opacity: 0.5;
+  z-index: -1;
+  background: rgba(240, 168, 48, 0.1);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--gold::after {
+  border: 1px solid rgba(240, 168, 48, 0.2);
+  transform: translate(6px, 6px);
+  opacity: 0.3;
+  z-index: -2;
+  background: rgba(240, 168, 48, 0.05);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.btn-layered--gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(240, 168, 48, 0.2);
+}
+
+/* ═══════════════════════════════════════════════
+   GLASS CARD
+   ═══════════════════════════════════════════════ */
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+/* ── Section label pill ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(124, 107, 245, 0.08);
+  border: 1px solid rgba(124, 107, 245, 0.15);
+  color: var(--color-primary-dark);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Fade in animation ── */
 .fade-in {
-  animation: fadeIn 0.6s ease-in-out;
+  animation: fadeIn var(--duration-slow) var(--ease-out);
 }
 
 @keyframes fadeIn {
@@ -120,36 +341,35 @@ a {
   }
 }
 
-/* Responsive utilities */
+/* ── Subtle float animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ── Glow pulse ── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ── Responsive ── */
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 var(--container-pad);
   }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
+
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+  h3 { font-size: var(--text-xl); }
+
+  .btn-layered {
+    padding: 0.8rem 1.5rem;
+    font-size: var(--text-sm);
   }
 }
 
 @media screen and (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  .btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
 }
