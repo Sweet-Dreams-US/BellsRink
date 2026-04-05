@@ -9,6 +9,8 @@ import Parties from './pages/Parties';
 import Policies from './pages/Policies';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -26,6 +28,8 @@ function App() {
             <Route path="/policies" element={<Policies />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

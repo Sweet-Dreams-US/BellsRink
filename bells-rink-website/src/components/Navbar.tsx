@@ -50,8 +50,15 @@ const Navbar: React.FC = () => {
           >
             Parties
           </Link>
-          <Link 
-            to="/contact" 
+          <Link
+            to="/blog"
+            className={`nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+            onClick={handleLinkClick}
+          >
+            Blog
+          </Link>
+          <Link
+            to="/contact"
             className={`nav-link ${isActive('/contact')}`}
             onClick={handleLinkClick}
           >

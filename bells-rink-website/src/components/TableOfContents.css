@@ -1,0 +1,129 @@
+/* Table of Contents */
+.toc {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  position: sticky;
+  top: 100px;
+}
+
+.toc__heading {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc__item {
+  position: relative;
+}
+
+.toc__item--h3 {
+  padding-left: var(--space-md);
+}
+
+.toc__link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+  line-height: 1.4;
+}
+
+.toc__link:hover {
+  color: var(--color-primary);
+  background: rgba(124, 107, 245, 0.06);
+}
+
+.toc__item--active .toc__link {
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+  background: rgba(124, 107, 245, 0.08);
+}
+
+.toc__item--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Toggle button — mobile only */
+.toc__toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+
+.toc__toggle-icon {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.toc--expanded .toc__toggle-icon {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 768px) {
+  .toc {
+    position: relative;
+    top: auto;
+    margin-bottom: var(--space-lg);
+  }
+
+  .toc__heading {
+    display: none;
+  }
+
+  .toc__toggle {
+    display: flex;
+  }
+
+  .toc__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-base) var(--ease-out);
+  }
+
+  .toc--expanded .toc__content {
+    max-height: 600px;
+    margin-top: var(--space-md);
+  }
+}
