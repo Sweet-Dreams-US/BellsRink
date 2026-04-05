@@ -56,6 +56,13 @@ export async function getCategories(): Promise<string[]> {
     .eq('is_visible', true)
 
   if (error) throw error
-  const unique = [...new Set((data ?? []).map((r: { category: string }) => r.category))]
+  const seen: Record<string, boolean> = {}
+  const unique: string[] = []
+  for (const r of data ?? []) {
+    if (!seen[r.category]) {
+      seen[r.category] = true
+      unique.push(r.category)
+    }
+  }
   return unique.sort()
 }
