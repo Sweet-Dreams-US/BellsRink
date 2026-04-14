@@ -109,6 +109,48 @@ const Home: React.FC = () => {
         time: '6:30-9PM',
         dateValue: new Date('2026-02-28'),
         icon: '🎵'
+      },
+      {
+        name: '$1 Night',
+        date: 'Wednesday, Apr 15th',
+        time: '6-8PM',
+        dateValue: new Date('2026-04-15'),
+        icon: '💰'
+      },
+      {
+        name: 'Family Pizza Night with DJ Krazy K',
+        date: 'Friday, Apr 17th',
+        time: '6:30-9PM',
+        dateValue: new Date('2026-04-17'),
+        icon: '🍕'
+      },
+      {
+        name: 'Roll & Glow with DJ Krazy K',
+        date: 'Saturday, Apr 18th',
+        time: '6:30-9PM',
+        dateValue: new Date('2026-04-18'),
+        icon: '✨'
+      },
+      {
+        name: 'Family Fun Skate',
+        date: 'Sunday, Apr 19th',
+        time: '12:30-3PM',
+        dateValue: new Date('2026-04-19'),
+        icon: '⛸️'
+      },
+      {
+        name: 'Adult Skate Night 18+ with DJ Krazy K',
+        date: 'Sunday, Apr 19th',
+        time: '8-11PM',
+        dateValue: new Date('2026-04-19'),
+        icon: '🌙'
+      },
+      {
+        name: '$1 Night',
+        date: 'Wednesday, Apr 29th',
+        time: '6-8PM',
+        dateValue: new Date('2026-04-29'),
+        icon: '💰'
       }
     ];
   }, []);
