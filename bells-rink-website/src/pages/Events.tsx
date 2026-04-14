@@ -87,7 +87,7 @@ const Events: React.FC = () => {
       date: 'Saturday, February 14th',
       dateValue: new Date('2026-02-14'),
       name: 'Valentine\'s Day Late Skate',
-      time: '9:00 PM - 11:00 PM',
+      time: '6:30 PM - 11:00 PM',
       icon: '❤️',
       color: 'celebration'
     },
@@ -126,10 +126,64 @@ const Events: React.FC = () => {
     {
       date: 'Saturday, February 28th',
       dateValue: new Date('2026-02-28'),
-      name: 'Roll-N-Glow with DJ Crazy K!',
+      name: 'Late Night Glow Skate with DJ Krazy K',
       time: '6:30 PM - 9:00 PM',
       icon: '🎵',
       color: 'music'
+    },
+    {
+      date: 'Wednesday, April 15th',
+      dateValue: new Date('2026-04-15'),
+      name: '$1 Night',
+      time: '6:00 PM - 8:00 PM',
+      description: '$1 admission',
+      icon: '💰',
+      color: 'deal'
+    },
+    {
+      date: 'Friday, April 17th',
+      dateValue: new Date('2026-04-17'),
+      name: 'Family Pizza Night with DJ Krazy K',
+      time: '6:30 PM - 9:00 PM',
+      description: '$10/skater or Family Pack $40 (pizza & pitcher included)',
+      icon: '🍕',
+      color: 'celebration'
+    },
+    {
+      date: 'Saturday, April 18th',
+      dateValue: new Date('2026-04-18'),
+      name: 'Roll & Glow with DJ Krazy K',
+      time: '6:30 PM - 9:00 PM',
+      description: '$10 per skater',
+      icon: '✨',
+      color: 'music'
+    },
+    {
+      date: 'Sunday, April 19th',
+      dateValue: new Date('2026-04-19'),
+      name: 'Family Fun Skate',
+      time: '12:30 PM - 3:00 PM',
+      description: '$8/skater or $30 for family of 5',
+      icon: '⛸️',
+      color: 'special'
+    },
+    {
+      date: 'Sunday, April 19th',
+      dateValue: new Date('2026-04-19'),
+      name: 'Adult Skate Night 18+ with DJ Krazy K',
+      time: '8:00 PM - 11:00 PM',
+      description: '$10 per skater',
+      icon: '🌙',
+      color: 'music'
+    },
+    {
+      date: 'Wednesday, April 29th',
+      dateValue: new Date('2026-04-29'),
+      name: '$1 Night',
+      time: '6:00 PM - 8:00 PM',
+      description: '$1 admission',
+      icon: '💰',
+      color: 'deal'
     }
   ], []);
 
@@ -188,6 +242,7 @@ const Events: React.FC = () => {
                   <div className="event-date">{event.date}</div>
                   <div className="event-name">{event.name}</div>
                   <div className="event-time">{event.time}</div>
+                  {event.description && <div className="event-description">{event.description}</div>}
                 </div>
               ))}
             </div>
@@ -210,6 +265,7 @@ const Events: React.FC = () => {
                   <div className="event-date">{event.date}</div>
                   <div className="event-name">{event.name}</div>
                   <div className="event-time">{event.time}</div>
+                  {event.description && <div className="event-description">{event.description}</div>}
                 </div>
               ))}
             </div>

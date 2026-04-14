@@ -60,6 +60,55 @@ const Home: React.FC = () => {
         time: '12-2PM',
         dateValue: new Date('2026-01-30'),
         icon: '📚'
+      },
+      {
+        name: 'Afternoon Homeschool Skate',
+        date: 'Friday, Feb 13th',
+        time: '12-2PM',
+        dateValue: new Date('2026-02-13'),
+        icon: '📚'
+      },
+      {
+        name: 'Valentine\'s Day Late Skate',
+        date: 'Saturday, Feb 14th',
+        time: '6:30-11PM',
+        dateValue: new Date('2026-02-14'),
+        icon: '❤️'
+      },
+      {
+        name: 'Schools Out Skate',
+        date: 'Monday, Feb 16th',
+        time: '12:30-3PM',
+        dateValue: new Date('2026-02-16'),
+        icon: '🎓'
+      },
+      {
+        name: 'Dollar Skate',
+        date: 'Wednesday, Feb 18th',
+        time: '6-8PM',
+        dateValue: new Date('2026-02-18'),
+        icon: '💰'
+      },
+      {
+        name: 'Dollar Skate',
+        date: 'Wednesday, Feb 25th',
+        time: '6-8PM',
+        dateValue: new Date('2026-02-25'),
+        icon: '💰'
+      },
+      {
+        name: 'Afternoon Homeschool Skate',
+        date: 'Friday, Feb 27th',
+        time: '12-2PM',
+        dateValue: new Date('2026-02-27'),
+        icon: '📚'
+      },
+      {
+        name: 'Late Night Glow Skate with DJ Krazy K',
+        date: 'Saturday, Feb 28th',
+        time: '6:30-9PM',
+        dateValue: new Date('2026-02-28'),
+        icon: '🎵'
       }
     ];
   }, []);
@@ -114,7 +163,7 @@ const Home: React.FC = () => {
       {/* Services Section */}
       <section className="services">
         <div className="services-background">
-          <img src="/images/KpopNight/busyrinkfeetangle.webp" alt="Roller skating fun" className="background-image" />
+          <img src="/images/Valentines/groupogkidsskating.webp" alt="Kids skating at the rink" className="background-image" />
         </div>
         <div className="container">
           <h2>What We Offer</h2>
@@ -235,9 +284,6 @@ const Home: React.FC = () => {
                 <p className="no-upcoming-events">No upcoming events at this time. Check back soon!</p>
               )}
             </div>
-            <div className="events-cta-home">
-              <a href="/events" className="view-all-events">View All Events →</a>
-            </div>
           </div>
         </div>
       </section>
@@ -247,10 +293,13 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>See Our Rink in Action!</h2>
           <div className="photo-grid-2x2">
-            <img src="/images/KpopNight/rollerskatecloseupwide3.webp" alt="Wide view of roller skating action" />
-            <img src="/images/KpopNight/busyrinkfeetangle.webp" alt="Close-up of skating action" />
-            <img src="/images/KpopNight/busynightkidsskating.webp" alt="Busy night with kids skating" />
-            <img src="/images/KpopNight/closeupneonadultsskates.webp" alt="Adult skaters with neon lights" />
+            <img src="/images/Valentines/groupofkids.webp" alt="Group of kids at the rink" />
+            <img src="/images/Valentines/DJ.webp" alt="DJ spinning tracks at the rink" />
+            <img src="/images/Valentines/dancer.webp" alt="Skater showing off dance moves" />
+            <img src="/images/Valentines/overlookingskatinggame.webp" alt="Overlooking a skating game" />
+          </div>
+          <div className="events-cta-home">
+            <a href="/gallery" className="view-all-events">View Full Gallery</a>
           </div>
         </div>
       </section>

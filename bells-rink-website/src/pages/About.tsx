@@ -182,19 +182,19 @@ const About: React.FC = () => {
           <PhotoGallery
             photos={[
               {
-                src: "/images/KpopNight/rollerskatecloseupwide2.webp",
-                alt: "Wide angle view of the skating experience",
-                caption: "Experience"
+                src: "/images/Valentines/Kidsskating.webp",
+                alt: "Kids having a blast skating",
+                caption: "Fun Times"
               },
               {
-                src: "/images/KpopNight/closeupkidsskate2.webp",
-                alt: "Kids having fun skating",
-                caption: "Memories"
-              },
-              {
-                src: "/images/KpopNight/closeuprinkrefereeskates.webp",
-                alt: "Referee skates on the rink floor",
+                src: "/images/Valentines/referee.webp",
+                alt: "Referee keeping things safe on the rink",
                 caption: "Safe Fun"
+              },
+              {
+                src: "/images/Valentines/duo.webp",
+                alt: "Duo skating together",
+                caption: "Memories"
               }
             ]}
             columns={3}

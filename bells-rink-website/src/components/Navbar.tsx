@@ -44,6 +44,13 @@ const Navbar: React.FC = () => {
             Events
           </Link>
           <Link
+            to="/gallery"
+            className={`nav-link ${isActive('/gallery')}`}
+            onClick={handleLinkClick}
+          >
+            Gallery
+          </Link>
+          <Link
             to="/parties"
             className={`nav-link ${isActive('/parties')}`}
             onClick={handleLinkClick}

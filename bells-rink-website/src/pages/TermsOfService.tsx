@@ -101,13 +101,6 @@ const TermsOfService: React.FC = () => {
             <div className="legal-section">
               <h2>6. Payment Terms</h2>
               <p>
-                Bell's Skating Rink offers different pricing for cash and credit card payments:
-              </p>
-              <ul>
-                <li><strong>Cash Pricing:</strong> Preferred payment method with discounted rates</li>
-                <li><strong>Credit Card Pricing:</strong> Slightly higher rates apply to cover processing fees</li>
-              </ul>
-              <p>
                 All prices are subject to change. Current pricing is displayed at the facility
                 and on our website.
               </p>

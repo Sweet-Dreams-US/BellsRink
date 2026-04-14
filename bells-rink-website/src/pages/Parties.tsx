@@ -45,12 +45,7 @@ const Parties: React.FC = () => {
               </div>
               <div className="package-pricing">
                 <div className="price-main">
-                  <span className="price-cash">$100</span>
-                  <span className="price-label">Cash</span>
-                </div>
-                <div className="price-alt">
-                  <span className="price-cc">$110</span>
-                  <span className="price-label">Credit Card</span>
+                  <span className="price-amount">$110</span>
                 </div>
               </div>
               <div className="package-features">
@@ -85,12 +80,7 @@ const Parties: React.FC = () => {
               </div>
               <div className="package-pricing">
                 <div className="price-main">
-                  <span className="price-cash">$210</span>
-                  <span className="price-label">Cash</span>
-                </div>
-                <div className="price-alt">
-                  <span className="price-cc">$220</span>
-                  <span className="price-label">Credit Card</span>
+                  <span className="price-amount">$220</span>
                 </div>
               </div>
               <div className="package-features">
@@ -125,12 +115,7 @@ const Parties: React.FC = () => {
               </div>
               <div className="package-pricing">
                 <div className="price-main">
-                  <span className="price-cash">$290</span>
-                  <span className="price-label">Cash</span>
-                </div>
-                <div className="price-alt">
-                  <span className="price-cc">$300</span>
-                  <span className="price-label">Credit Card</span>
+                  <span className="price-amount">$300</span>
                 </div>
               </div>
               <div className="package-features">
@@ -161,12 +146,7 @@ const Parties: React.FC = () => {
               </div>
               <div className="package-pricing">
                 <div className="price-main">
-                  <span className="price-cash">$390</span>
-                  <span className="price-label">Cash</span>
-                </div>
-                <div className="price-alt">
-                  <span className="price-cc">$400</span>
-                  <span className="price-label">Credit Card</span>
+                  <span className="price-amount">$400</span>
                 </div>
               </div>
               <div className="package-features">

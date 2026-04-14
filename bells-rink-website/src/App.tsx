@@ -6,6 +6,7 @@ import About from './pages/About';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
 import Parties from './pages/Parties';
+import Gallery from './pages/Gallery';
 import Policies from './pages/Policies';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/parties" element={<Parties />} />
             <Route path="/policies" element={<Policies />} />
             <Route path="/terms" element={<TermsOfService />} />
