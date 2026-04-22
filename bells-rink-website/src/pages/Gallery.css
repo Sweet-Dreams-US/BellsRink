@@ -1,34 +1,183 @@
-/* Gallery Page Styles */
+/* ═══════════════════════════════════════════════
+   GALLERY PAGE — 100th Anniversary Edition
+   ═══════════════════════════════════════════════ */
+
 .gallery-page {
   margin-top: 80px;
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Hero Section */
-.gallery-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* ── Anniversary Hero ── */
+.anniversary-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 40%, #5b4dc7 100%);
   color: white;
-  padding: 4rem 0;
+  padding: 5rem 0 4rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.gallery-hero h1 {
-  font-size: 3.5rem;
+.anniversary-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(240, 168, 48, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.anniversary-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124, 107, 245, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.anniversary-badge-hero {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f0a830, #e8860c);
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(240, 168, 48, 0.4), 0 0 60px rgba(240, 168, 48, 0.15);
+  animation: pulse-glow 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 8px 30px rgba(240, 168, 48, 0.4), 0 0 60px rgba(240, 168, 48, 0.15); }
+  50% { box-shadow: 0 8px 40px rgba(240, 168, 48, 0.6), 0 0 80px rgba(240, 168, 48, 0.25); }
+}
+
+.anniversary-number {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.anniversary-unit {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.anniversary-hero h1 {
+  font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
 }
 
-.gallery-hero-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
+.anniversary-hero .gallery-hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
-/* Gallery Grid Section */
+.anniversary-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #f0a830, #e8860c);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(240, 168, 48, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+.anniversary-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(240, 168, 48, 0.5);
+}
+
+/* ── Confetti Animation ── */
+.anniversary-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0.6;
+  animation: confetti-fall linear infinite;
+}
+
+.c1 { background: #f0a830; left: 10%; animation-duration: 6s; animation-delay: 0s; width: 8px; height: 12px; }
+.c2 { background: #7c6bf5; left: 30%; animation-duration: 7s; animation-delay: 1s; width: 12px; height: 8px; }
+.c3 { background: #ff6b8a; left: 50%; animation-duration: 5s; animation-delay: 2s; width: 6px; height: 14px; }
+.c4 { background: #22c55e; left: 70%; animation-duration: 8s; animation-delay: 0.5s; width: 10px; height: 10px; }
+.c5 { background: #f0a830; left: 85%; animation-duration: 6.5s; animation-delay: 1.5s; width: 14px; height: 6px; }
+.c6 { background: #a78bfa; left: 20%; animation-duration: 7.5s; animation-delay: 3s; width: 8px; height: 8px; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(calc(100vh)) rotate(720deg); opacity: 0; }
+}
+
+/* ── Upload Section ── */
+.gallery-upload-section {
+  padding: 4rem 0;
+  background: var(--bg-dark, #f6f5fb);
+  position: relative;
+}
+
+.gallery-upload-section::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--bg-dark, #f6f5fb);
+  border-radius: 50%;
+}
+
+.gallery-section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 2.5rem;
+}
+
+/* ── Gallery Grid Section ── */
 .gallery-grid-section {
   padding: 4rem 0;
-  background: #f8f9fa;
+  background: var(--bg-deep, #ffffff);
 }
 
 /* Masonry layout using CSS columns */
@@ -60,7 +209,7 @@
   display: block;
 }
 
-/* Lightbox */
+/* ── Lightbox ── */
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -108,7 +257,7 @@
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media screen and (max-width: 1024px) {
   .gallery-masonry {
     column-count: 2;
@@ -116,12 +265,25 @@
 }
 
 @media screen and (max-width: 768px) {
-  .gallery-hero h1 {
-    font-size: 2.5rem;
+  .anniversary-hero {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .anniversary-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .anniversary-hero .gallery-hero-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
   }
 
   .gallery-grid-section {
     padding: 2rem 0;
+  }
+
+  .gallery-upload-section {
+    padding: 2.5rem 0;
   }
 
   .gallery-masonry {
@@ -135,12 +297,21 @@
 }
 
 @media screen and (max-width: 480px) {
-  .gallery-hero {
-    padding: 3rem 0;
+  .anniversary-hero {
+    padding: 3rem 0 2.5rem;
   }
 
-  .gallery-hero h1 {
-    font-size: 2rem;
+  .anniversary-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .anniversary-badge-hero {
+    width: 80px;
+    height: 80px;
+  }
+
+  .anniversary-number {
+    font-size: 2.2rem;
   }
 
   .gallery-masonry {

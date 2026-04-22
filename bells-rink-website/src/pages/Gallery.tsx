@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PhotoUpload from '../components/PhotoUpload';
 import './Gallery.css';
 
 interface Photo {
@@ -50,17 +51,43 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="gallery-page">
-      {/* Hero Section */}
-      <section className="gallery-hero">
+      {/* Hero Section — 100th Anniversary */}
+      <section className="gallery-hero anniversary-hero">
+        <div className="anniversary-confetti" aria-hidden="true">
+          <span className="confetti c1"></span>
+          <span className="confetti c2"></span>
+          <span className="confetti c3"></span>
+          <span className="confetti c4"></span>
+          <span className="confetti c5"></span>
+          <span className="confetti c6"></span>
+        </div>
         <div className="container">
-          <h1>Photo Gallery</h1>
-          <p className="gallery-hero-subtitle">Check out the fun at Bell's Skating Rink!</p>
+          <div className="anniversary-badge-hero">
+            <span className="anniversary-number">100</span>
+            <span className="anniversary-unit">YEARS</span>
+          </div>
+          <h1>Celebrating 100 Years of Bell's!</h1>
+          <p className="gallery-hero-subtitle">
+            Since 1926, Bell's Skating Rink has been bringing families together on wheels.
+            Help us celebrate a century of memories — share your photos from over the years!
+          </p>
+          <a href="#upload" className="anniversary-cta">
+            📸 Upload Your Photos
+          </a>
+        </div>
+      </section>
+
+      {/* Upload Section — Big and Obvious */}
+      <section id="upload" className="gallery-upload-section">
+        <div className="container">
+          <PhotoUpload />
         </div>
       </section>
 
       {/* Photo Grid */}
       <section className="gallery-grid-section">
         <div className="container">
+          <h2 className="gallery-section-title">Recent Photos</h2>
           <div className="gallery-masonry">
             {photos.map((photo, index) => (
               <div

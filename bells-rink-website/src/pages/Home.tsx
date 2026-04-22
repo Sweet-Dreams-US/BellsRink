@@ -202,6 +202,30 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* 100th Anniversary Banner */}
+      <section className="anniversary-banner">
+        <div className="container">
+          <div className="anniversary-content">
+            <div className="anniversary-badge-home">
+              <span className="ann-number">100</span>
+              <span className="ann-label">YEARS</span>
+            </div>
+            <div className="anniversary-text">
+              <h2>Celebrating 100 Years of Bell's!</h2>
+              <p>
+                Since 1926, Bell's Skating Rink has been a Fort Wayne tradition. We're celebrating
+                a century of family fun and we want YOUR photos! Share pictures from over the years —
+                last weekend or decades ago.
+              </p>
+            </div>
+            <div className="anniversary-actions">
+              <a href="/gallery#upload" className="ann-btn-primary">📸 Upload Photos</a>
+              <a href="mailto:bellsrollerrink@gmail.com" className="ann-btn-secondary">🎥 Email Videos</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="services">
         <div className="services-background">

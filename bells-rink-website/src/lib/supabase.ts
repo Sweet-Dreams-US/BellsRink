@@ -47,6 +47,43 @@ export function getPhotoUrl(storagePath: string): string {
 }
 
 /**
+ * Upload a community photo to the "community-uploads" storage bucket.
+ * Returns the storage path on success.
+ */
+export async function uploadCommunityPhoto(
+  file: File,
+  uploaderName?: string
+): Promise<string> {
+  const timestamp = Date.now()
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_')
+  const path = `${timestamp}_${safeName}`
+
+  const { error } = await supabase.storage
+    .from('community-uploads')
+    .upload(path, file, {
+      cacheControl: '3600',
+      upsert: false,
+    })
+
+  if (error) throw error
+
+  // Optionally log the upload metadata to a table
+  try {
+    await supabase.from('community_photos').insert({
+      storage_path: path,
+      uploader_name: uploaderName || 'Anonymous',
+      file_name: file.name,
+      file_size: file.size,
+      status: 'pending', // pending review
+    })
+  } catch {
+    // Metadata insert is best-effort; the file is already uploaded
+  }
+
+  return path
+}
+
+/**
  * Fetch distinct photo categories.
  */
 export async function getCategories(): Promise<string[]> {

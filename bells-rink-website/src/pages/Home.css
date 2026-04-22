@@ -271,6 +271,160 @@
   border-top-color: rgba(124, 107, 245, 0.06);
 }
 
+/* ── 100TH ANNIVERSARY BANNER ── */
+.anniversary-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 50%, #5b4dc7 100%);
+  color: white;
+  padding: var(--space-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.anniversary-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(240, 168, 48, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.anniversary-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  position: relative;
+  z-index: 1;
+}
+
+.anniversary-badge-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0a830, #e8860c);
+  box-shadow: 0 6px 25px rgba(240, 168, 48, 0.4);
+  animation: pulse-glow-home 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-home {
+  0%, 100% { box-shadow: 0 6px 25px rgba(240, 168, 48, 0.4); }
+  50% { box-shadow: 0 6px 35px rgba(240, 168, 48, 0.6), 0 0 50px rgba(240, 168, 48, 0.15); }
+}
+
+.ann-number {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ann-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.anniversary-text {
+  flex: 1;
+}
+
+.anniversary-text h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.anniversary-text p {
+  font-size: var(--text-sm);
+  opacity: 0.85;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.anniversary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.ann-btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, #f0a830, #e8860c);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(240, 168, 48, 0.3);
+  white-space: nowrap;
+}
+
+.ann-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 168, 48, 0.5);
+}
+
+.ann-btn-secondary {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.ann-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+@media screen and (max-width: 768px) {
+  .anniversary-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .anniversary-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .anniversary-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ann-btn-primary,
+  .ann-btn-secondary {
+    width: 100%;
+  }
+}
+
 /* ── SERVICES ── */
 .services {
   padding: var(--space-5xl) 0;
