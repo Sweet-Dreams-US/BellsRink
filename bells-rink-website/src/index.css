@@ -25,3 +25,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* ── Purple & Gold Atmosphere ── */
+::selection {
+  background: rgba(124, 107, 245, 0.2);
+  color: var(--text-primary);
+}
+
+/* Gold accent underline on section headings */
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-accent-line);
+  border-radius: 100px;
+  margin: 0.6rem auto 0;
+  opacity: 0.8;
+}
+
+/* Sections that left-align h2 can override */
+.footer h2::after,
+.footer h3::after,
+.footer h4::after {
+  display: none;
+}

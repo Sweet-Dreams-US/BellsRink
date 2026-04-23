@@ -200,7 +200,7 @@
 
 .gallery-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(124, 107, 245, 0.12), 0 12px 35px rgba(240, 168, 48, 0.10);
 }
 
 .gallery-item img {
