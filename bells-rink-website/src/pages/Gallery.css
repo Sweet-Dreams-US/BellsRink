@@ -76,13 +76,40 @@
   text-transform: uppercase;
 }
 
-.anniversary-hero h1 {
+.anniversary-hero h1:not(.poster-headline) {
   font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -1px;
   position: relative;
   z-index: 1;
+}
+
+.anniversary-hero .gallery-poster {
+  font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  color: white;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.anniversary-hero .gallery-poster .script-accent {
+  color: var(--color-gold-light, #ffd36e);
+}
+
+.anniversary-hero .eyebrow-divider {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-md);
+  color: var(--color-gold-light, #ffd36e);
+}
+
+.anniversary-hero .eyebrow-divider::before,
+.anniversary-hero .eyebrow-divider::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 211, 110, 0.5), transparent);
 }
 
 .anniversary-hero .gallery-hero-subtitle {

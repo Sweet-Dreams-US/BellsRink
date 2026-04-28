@@ -75,9 +75,14 @@ const Contact: React.FC = () => {
         <div className="contact-hero">
           <div className="container">
             <div className="success-message">
-              <h1>Thank You!</h1>
-              <p>Your message has been sent successfully. We'll get back to you soon!</p>
-              <a href="/" className="btn-primary">Return Home</a>
+              <div className="eyebrow-divider">Message Received</div>
+              <h1 className="poster-headline hero-poster">
+                Thank <span className="script-accent gold">you!</span>
+              </h1>
+              <p>Your message has been sent successfully. We'll get back to you soon.</p>
+              <a href="/" className="btn-arrow solid">
+                Return Home <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </div>
@@ -92,8 +97,11 @@ const Contact: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Contact Bell's Skating Rink</h1>
-              <p className="hero-subtitle">Get in touch with us - we'd love to hear from you!</p>
+              <div className="eyebrow-divider">Phone · Form · In Person</div>
+              <h1 className="poster-headline hero-poster">
+                Get in <span className="script-accent gold">touch.</span>
+              </h1>
+              <p className="hero-subtitle">Questions about parties, events, or hours? We're here. Call, write, or just stop by.</p>
             </div>
             <div className="hero-image">
               <div className="hero-characters">
@@ -117,31 +125,31 @@ const Contact: React.FC = () => {
           <div className="contact-grid">
             <div className="info-cards">
               <div className="info-card">
-                <div className="card-icon">📍</div>
-                <h3>Visit Us</h3>
+                <span className="meta-label">Address</span>
+                <h3>Visit us</h3>
                 <p>7009 IN-930<br/>Fort Wayne, IN 46803</p>
-                <a 
-                  href="https://maps.app.goo.gl/dC9siLxcJ4K9FvX59" 
-                  target="_blank" 
+                <a
+                  href="https://maps.app.goo.gl/dC9siLxcJ4K9FvX59"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="link-button"
                 >
-                  Get Directions
+                  Get Directions →
                 </a>
               </div>
 
               <div className="info-card">
-                <div className="card-icon">📞</div>
-                <h3>Call Us</h3>
-                <p><a href="tel:+12607498214">(260) 749-8214</a> - Main</p>
-                <p><a href="tel:+12604033766">(260) 403-3766</a> - Reservations</p>
-                <p><a href="tel:+12607101245">(260) 710-1245</a> - Manager</p>
+                <span className="meta-label">Phone</span>
+                <h3>Call us</h3>
+                <p><a href="tel:+12607498214">(260) 749-8214</a> — Main</p>
+                <p><a href="tel:+12604033766">(260) 403-3766</a> — Reservations</p>
+                <p><a href="tel:+12607101245">(260) 710-1245</a> — Manager</p>
                 <p className="card-note">Call during business hours for immediate assistance</p>
               </div>
 
               <div className="info-card">
-                <div className="card-icon">🕒</div>
-                <h3>Hours</h3>
+                <span className="meta-label">Hours</span>
+                <h3>When we're open</h3>
                 <div className="hours-list">
                   <div className="hour-row">
                     <span>Tuesday:</span>
@@ -170,8 +178,13 @@ const Contact: React.FC = () => {
             {/* Contact Form */}
             <div className="contact-form-section">
               <div className="form-header">
-                <h2>Send Us a Message</h2>
-                <p>Have questions about parties, events, or just want to say hello? We'd love to hear from you!</p>
+                <div className="section-eyebrow">
+                  <span className="eyebrow-tag">Drop us a line</span>
+                </div>
+                <h2 className="poster-headline section-headline">
+                  Send us a <span className="script-accent">message.</span>
+                </h2>
+                <p>Have questions about parties, events, or just want to say hello? We'd love to hear from you.</p>
               </div>
               
               <form onSubmit={handleSubmit} className="contact-form">
@@ -315,7 +328,12 @@ const Contact: React.FC = () => {
       {/* Gallery Section */}
       <section className="contact-gallery-section">
         <div className="container">
-          <h2>Come Visit Us!</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">The rink</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Come <span className="script-accent gold">visit us.</span>
+          </h2>
           <div className="photo-grid-2x2">
             <img src="/images/KpopNight/rollerskatecloseupwide4.webp" alt="Wide view of our skating rink" />
             <img src="/images/KpopNight/rollerskatecloseupwide5.webp" alt="Action on the rink floor" />
@@ -326,7 +344,12 @@ const Contact: React.FC = () => {
       {/* Google Maps Section */}
       <section className="map-section">
         <div className="container">
-          <h2>Find Us</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">On the map</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Find <span className="script-accent">us.</span>
+          </h2>
           <div className="map-container">
             <iframe
               title="Bell's Skating Rink Location"
@@ -360,10 +383,12 @@ const Contact: React.FC = () => {
       <section className="quick-contact">
         <div className="container">
           <div className="quick-contact-content">
-            <h2>Need to Reach Us Right Away?</h2>
-            <p>Give us a call during business hours for immediate assistance</p>
-            <a href="tel:+12607498214" className="phone-cta">
-              📞 (260) 749-8214
+            <h2 className="poster-headline section-headline">
+              Need us <span className="script-accent gold">right now?</span>
+            </h2>
+            <p>Give us a call during business hours for immediate assistance.</p>
+            <a href="tel:+12607498214" className="btn-arrow solid-gold">
+              Call (260) 749-8214 <span className="arrow">→</span>
             </a>
           </div>
         </div>

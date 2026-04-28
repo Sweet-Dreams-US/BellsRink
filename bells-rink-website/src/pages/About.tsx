@@ -9,7 +9,10 @@ const About: React.FC = () => {
       <section className="about-hero">
         <div className="container">
           <div className="hero-content">
-            <h1>About Bell's Skating Rink</h1>
+            <div className="eyebrow-divider">Family Owned · New Haven, IN · Since 1926</div>
+            <h1 className="poster-headline hero-poster">
+              A century of <span className="script-accent gold">good times.</span>
+            </h1>
           </div>
         </div>
       </section>
@@ -19,7 +22,12 @@ const About: React.FC = () => {
         <div className="container">
           <div className="story-content">
             <div className="story-text">
-              <h2>Our Story</h2>
+              <div className="section-eyebrow">
+                <span className="eyebrow-tag">The Dunlap family</span>
+              </div>
+              <h2 className="poster-headline section-headline">
+                Our <span className="script-accent">story.</span>
+              </h2>
               <p>
                 Bell's Skating Rink has been bringing joy and excitement to families in New Haven, Indiana. 
                 Owned and operated by <strong>Eric & Stacy Dunlap</strong>, we understand the importance of creating lasting memories 
@@ -43,16 +51,16 @@ const About: React.FC = () => {
               </div>
               <div className="story-stats">
                 <div className="stat-item">
-                  <h3>4.4⭐</h3>
-                  <p>Google Rating</p>
+                  <span className="meta-label">Google Rating</span>
+                  <h3>4.4 ★</h3>
                 </div>
                 <div className="stat-item">
+                  <span className="meta-label">Owned &amp; Operated</span>
                   <h3>Family</h3>
-                  <p>Owned & Operated</p>
                 </div>
                 <div className="stat-item">
+                  <span className="meta-label">Fun Guaranteed</span>
                   <h3>100%</h3>
-                  <p>Fun Guaranteed</p>
                 </div>
               </div>
             </div>
@@ -75,7 +83,12 @@ const About: React.FC = () => {
       {/* Services Section */}
       <section className="detailed-services">
         <div className="container">
-          <h2>What Makes Us Special</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">What we offer</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            What makes us <span className="script-accent gold">special.</span>
+          </h2>
           <div className="services-list">
             <div className="service-detail">
               <div className="service-icon">🛼</div>
@@ -152,7 +165,12 @@ const About: React.FC = () => {
       {/* Values Section */}
       <section className="values">
         <div className="container">
-          <h2>Our Values</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">What we stand for</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Our <span className="script-accent">values.</span>
+          </h2>
           <div className="values-grid">
             <div className="value-card">
               <h3>👨‍👩‍👧‍👦 Family First</h3>
@@ -177,8 +195,13 @@ const About: React.FC = () => {
       {/* Rink Gallery */}
       <section className="rink-gallery">
         <div className="container">
-          <h2>Experience Our Beautiful Rink</h2>
-          <p className="gallery-subtitle">See our rink come alive with happy skaters!</p>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">Photographs</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            The rink <span className="script-accent gold">comes alive.</span>
+          </h2>
+          <p className="gallery-subtitle">Happy skaters, every weekend.</p>
           <PhotoGallery
             photos={[
               {
@@ -207,7 +230,12 @@ const About: React.FC = () => {
       {/* Skates Showcase */}
       <section className="skates-showcase">
         <div className="container">
-          <h2>The Art of Skating</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">The wheels</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            The art of <span className="script-accent">skating.</span>
+          </h2>
           <div className="wide-image-container">
             <img src="/images/3RollerSkates.jpeg" alt="Three different roller skate designs" className="skates-wide-image" />
           </div>
@@ -218,11 +246,17 @@ const About: React.FC = () => {
       <section className="about-cta">
         <div className="container">
           <div className="cta-content">
-            <h2>Ready to Roll?</h2>
-            <p>Come experience the Bell's Skating Rink difference for yourself!</p>
+            <h2 className="poster-headline section-headline">
+              Ready to <span className="script-accent gold">roll?</span>
+            </h2>
+            <p>Come experience the Bell's difference for yourself.</p>
             <div className="cta-buttons">
-              <a href="tel:+12607498214" className="btn-primary">Call Now</a>
-              <a href="/contact" className="btn-secondary">Get Directions</a>
+              <a href="tel:+12607498214" className="btn-arrow solid">
+                Call Now <span className="arrow">→</span>
+              </a>
+              <a href="/contact" className="btn-arrow outline">
+                Get Directions <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </div>

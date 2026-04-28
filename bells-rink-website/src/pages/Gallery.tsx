@@ -66,13 +66,15 @@ const Gallery: React.FC = () => {
             <span className="anniversary-number">100</span>
             <span className="anniversary-unit">YEARS</span>
           </div>
-          <h1>Celebrating 100 Years of Bell's!</h1>
+          <h1 className="poster-headline gallery-poster">
+            Celebrating 100 years <span className="script-accent gold">of Bell's.</span>
+          </h1>
           <p className="gallery-hero-subtitle">
             Since 1926, Bell's Skating Rink has been bringing families together on wheels.
-            Help us celebrate a century of memories — share your photos from over the years!
+            Help us celebrate a century of memories — share your photos from over the years.
           </p>
-          <a href="#upload" className="anniversary-cta">
-            📸 Upload Your Photos
+          <a href="#upload" className="btn-arrow solid-gold">
+            Upload Your Photos <span className="arrow">→</span>
           </a>
         </div>
       </section>
@@ -87,7 +89,12 @@ const Gallery: React.FC = () => {
       {/* Photo Grid */}
       <section className="gallery-grid-section">
         <div className="container">
-          <h2 className="gallery-section-title">Recent Photos</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">The community</span>
+          </div>
+          <h2 className="poster-headline section-headline gallery-section-title">
+            Recent <span className="script-accent">photos.</span>
+          </h2>
           <div className="gallery-masonry">
             {photos.map((photo, index) => (
               <div

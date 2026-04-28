@@ -9,10 +9,15 @@ const Parties: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Birthday Party Packages</h1>
-              <p className="hero-subtitle">Book that next special birthday party with Bell's Skating Rink and bring the kids out for a rockin' rollin' great time!</p>
+              <div className="eyebrow-divider">Birthday Parties · Group Events · Private Rink</div>
+              <h1 className="poster-headline hero-poster">
+                Throw a party they'll <span className="script-accent gold">never forget.</span>
+              </h1>
+              <p className="hero-subtitle">From small celebrations to private rink takeovers — we'll handle the skates, the music, and the birthday song. You bring the cake.</p>
               <div className="hero-cta">
-                <a href="tel:+12604033766" className="cta-primary">Call (260) 403-3766 for Reservations</a>
+                <a href="tel:+12604033766" className="btn-arrow solid">
+                  Call (260) 403-3766 to Reserve <span className="arrow">→</span>
+                </a>
               </div>
             </div>
             <div className="hero-image">
@@ -34,7 +39,12 @@ const Parties: React.FC = () => {
       {/* Packages Section */}
       <section className="packages">
         <div className="container">
-          <h2>Choose Your Perfect Party Package</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">The packages</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Pick your <span className="script-accent">perfect package.</span>
+          </h2>
           <div className="packages-grid">
             
             {/* Package 1 */}
@@ -179,7 +189,12 @@ const Parties: React.FC = () => {
       {/* Party Gallery */}
       <section className="party-gallery">
         <div className="container">
-          <h2>Your Party Could Look Like This!</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">Imagine this</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Your party could <span className="script-accent gold">look like this.</span>
+          </h2>
           <div className="photo-grid-2x2">
             <img src="/images/KpopNight/Rollerskatecloseupwide.webp" alt="Wide angle view of skating party action" />
             <img src="/images/KpopNight/busyrollerskatewideskinny.webp" alt="Panoramic view of the party rink" />
@@ -227,14 +242,20 @@ const Parties: React.FC = () => {
       <section className="party-cta">
         <div className="container">
           <div className="cta-content">
-            <h2>Ready to Book Your Party?</h2>
-            <p>Call us today to reserve your perfect birthday party package!</p>
+            <h2 className="poster-headline section-headline">
+              Ready to <span className="script-accent gold">book?</span>
+            </h2>
+            <p>Call us today to reserve your perfect birthday party package.</p>
             <div className="cta-buttons">
-              <a href="tel:+12604033766" className="btn-primary">
-                📞 Call (260) 403-3766
+              <a href="tel:+12604033766" className="btn-arrow solid">
+                Call (260) 403-3766 <span className="arrow">→</span>
               </a>
-              <a href="/contact" className="btn-secondary">Get More Info</a>
-              <a href="/events" className="btn-tertiary">Check Out Our Special Events</a>
+              <a href="/contact" className="btn-arrow outline">
+                Get More Info <span className="arrow">→</span>
+              </a>
+              <a href="/events" className="btn-arrow outline">
+                Special Events <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </div>

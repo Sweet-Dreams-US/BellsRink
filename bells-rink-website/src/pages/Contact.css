@@ -41,7 +41,7 @@
   z-index: 1;
 }
 
-.contact-hero .hero-text h1 {
+.contact-hero .hero-text h1:not(.poster-headline) {
   font-size: var(--text-4xl);
   font-weight: var(--fw-bold);
   margin-bottom: var(--space-md);
@@ -104,7 +104,7 @@
   text-align: center;
 }
 
-.success-message h1 {
+.success-message h1:not(.poster-headline) {
   color: var(--color-green);
   margin-bottom: var(--space-md);
 }
@@ -156,17 +156,20 @@
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   padding: var(--space-xl);
-  border-radius: var(--radius-xl);
-  text-align: center;
+  border-radius: var(--radius-sharp);
+  text-align: left;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: all var(--duration-base) var(--ease-out);
+  border-top: 2px solid var(--color-gold);
 }
 
 .info-card:hover {
   background: var(--glass-bg-hover);
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-glow-sm);
+  border-color: rgba(240, 168, 48, 0.3);
+  border-top-color: var(--color-gold-dark);
+  box-shadow: var(--shadow-mixed-hover);
+  transform: translateY(-2px);
 }
 
 .card-icon {
@@ -175,9 +178,17 @@
 }
 
 .info-card h3 {
-  font-size: var(--text-md);
-  margin-bottom: var(--space-md);
-  font-weight: var(--fw-semibold);
+  font-size: var(--text-xl);
+  margin: 0.3rem 0 var(--space-md);
+  font-weight: 900;
+  font-family: var(--font-poster);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.info-card .meta-label {
+  margin-bottom: 0;
 }
 
 .info-card p {
@@ -274,7 +285,7 @@
   margin-bottom: var(--space-2xl);
 }
 
-.form-header h2 {
+.form-header h2:not(.poster-headline) {
   font-size: var(--text-2xl);
   margin-bottom: var(--space-sm);
   font-weight: var(--fw-bold);
@@ -314,9 +325,11 @@
 
 .form-group label {
   font-weight: var(--fw-semibold);
-  color: var(--text-secondary);
-  margin-bottom: 0.4rem;
-  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
 }
 
 .form-group input,
@@ -418,7 +431,7 @@
   background: var(--bg-deep);
 }
 
-.contact-gallery-section h2 {
+.contact-gallery-section h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-3xl);
@@ -454,7 +467,7 @@
   background: var(--bg-dark);
 }
 
-.map-section h2 {
+.map-section h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-3xl);
@@ -521,7 +534,7 @@
   border-top: 1px solid var(--glass-border);
 }
 
-.quick-contact-content h2 {
+.quick-contact-content h2:not(.poster-headline) {
   font-size: var(--text-2xl);
   margin-bottom: var(--space-md);
   font-weight: var(--fw-bold);

@@ -33,10 +33,21 @@
   z-index: 1;
 }
 
-.about-hero .hero-content h1 {
+.about-hero .hero-content h1:not(.poster-headline) {
   font-size: var(--text-4xl);
   font-weight: var(--fw-bold);
   letter-spacing: -0.03em;
+}
+
+.about-hero .hero-content .hero-poster {
+  font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+  text-align: center;
+  margin: var(--space-md) auto;
+  max-width: 900px;
+}
+
+.about-hero .eyebrow-divider {
+  margin-bottom: var(--space-md);
 }
 
 /* ── Story ── */
@@ -54,7 +65,7 @@
   align-items: start;
 }
 
-.story-text h2 {
+.story-text h2:not(.poster-headline) {
   font-size: var(--text-3xl);
   margin-bottom: var(--space-xl);
   font-weight: var(--fw-bold);
@@ -104,10 +115,13 @@
 .stat-item { text-align: center; }
 
 .stat-item h3 {
-  font-size: var(--text-xl);
-  color: var(--color-primary-light);
-  margin-bottom: 0.3rem;
-  font-weight: var(--fw-bold);
+  font-size: var(--text-2xl);
+  color: var(--color-gold-dark);
+  margin: 0.4rem 0 0;
+  font-weight: 900;
+  font-family: var(--font-poster);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .stat-item p {
@@ -168,7 +182,7 @@
   background: var(--bg-deep);
 }
 
-.detailed-services h2 {
+.detailed-services h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-3xl);
@@ -260,7 +274,7 @@
   background: var(--bg-dark);
 }
 
-.values h2 {
+.values h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-3xl);
@@ -308,7 +322,7 @@
   background: var(--bg-deep);
 }
 
-.rink-gallery h2 {
+.rink-gallery h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-sm);
@@ -328,7 +342,7 @@
   background: var(--bg-dark);
 }
 
-.skates-showcase h2 {
+.skates-showcase h2:not(.poster-headline) {
   text-align: center;
   font-size: var(--text-3xl);
   margin-bottom: var(--space-3xl);
@@ -357,7 +371,7 @@
   border-top: 1px solid var(--glass-border);
 }
 
-.cta-content h2 {
+.cta-content h2:not(.poster-headline) {
   font-size: var(--text-3xl);
   margin-bottom: var(--space-md);
   font-weight: var(--fw-bold);

@@ -204,11 +204,18 @@ const Events: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Special Events</h1>
-              <p className="hero-subtitle">Join us for exciting themed skate nights and special celebrations at Bell's Skating Rink!</p>
+              <div className="eyebrow-divider">Themed Nights · DJ Sets · Family Fun</div>
+              <h1 className="poster-headline hero-poster">
+                Special events <span className="script-accent gold">all year long.</span>
+              </h1>
+              <p className="hero-subtitle">From glow skates to pizza nights to holiday celebrations — there's always something on the calendar at Bell's. Bring the whole family.</p>
               <div className="hero-cta">
-                <a href="tel:+12607498214" className="cta-primary">Call for Details</a>
-                <a href="/parties" className="cta-secondary">View Parties</a>
+                <a href="tel:+12607498214" className="btn-arrow solid">
+                  Call for Details <span className="arrow">→</span>
+                </a>
+                <a href="/parties" className="btn-arrow outline">
+                  View Parties <span className="arrow">→</span>
+                </a>
               </div>
             </div>
             <div className="hero-image">
@@ -233,7 +240,12 @@ const Events: React.FC = () => {
           <img src="/images/busynightkidsskating.webp" alt="Kids skating at night" className="background-image" />
         </div>
         <div className="container">
-          <h2>Upcoming Events</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">On the calendar</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            What's coming up <span className="script-accent">next.</span>
+          </h2>
           {upcomingEvents.length > 0 ? (
             <div className="events-grid">
               {upcomingEvents.map((event, index) => (
@@ -256,7 +268,12 @@ const Events: React.FC = () => {
       {pastEvents.length > 0 && (
         <section className="past-events-section">
           <div className="container">
-            <h2>Past Events - See What You Missed!</h2>
+            <div className="section-eyebrow">
+              <span className="eyebrow-tag">The archives</span>
+            </div>
+            <h2 className="poster-headline section-headline">
+              Past events, <span className="script-accent gold">remembered.</span>
+            </h2>
             <div className="events-grid past-events-grid">
               {pastEvents.map((event, index) => (
                 <div key={index} className={`event-card past-event ${event.color}`}>
@@ -276,7 +293,12 @@ const Events: React.FC = () => {
       {/* Event Highlights Section */}
       <section className="event-highlights">
         <div className="container">
-          <h2>Event Highlights</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">What to expect</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            More than just <span className="script-accent">skating.</span>
+          </h2>
           <div className="highlights-grid">
             <div className="highlight-card">
               <div className="highlight-icon">🎵</div>
@@ -300,7 +322,12 @@ const Events: React.FC = () => {
       {/* Photo Showcase Section */}
       <section className="photo-showcase">
         <div className="container">
-          <h2>Experience the Excitement</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">In motion</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Experience the <span className="script-accent gold">excitement.</span>
+          </h2>
           <div className="photo-gallery">
             <div className="photo-card large">
               <img src="/images/KpopNight/closeupneonadultsskates.webp" alt="Neon roller skates closeup" className="showcase-photo" />
@@ -349,13 +376,17 @@ const Events: React.FC = () => {
       <section className="events-cta">
         <div className="container">
           <div className="cta-content">
-            <h2>Want More Information?</h2>
-            <p>Call us to learn more about our special events and themed nights!</p>
+            <h2 className="poster-headline section-headline">
+              Got a question? <span className="script-accent gold">Just ask.</span>
+            </h2>
+            <p>Call us to learn more about our special events and themed nights.</p>
             <div className="cta-buttons">
-              <a href="tel:+12607498214" className="btn-primary">
-                📞 Call (260) 749-8214
+              <a href="tel:+12607498214" className="btn-arrow solid">
+                Call (260) 749-8214 <span className="arrow">→</span>
               </a>
-              <a href="/parties" className="btn-secondary">Book a Party</a>
+              <a href="/parties" className="btn-arrow outline">
+                Book a Party <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </div>
