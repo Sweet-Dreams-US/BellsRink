@@ -170,21 +170,29 @@ const Home: React.FC = () => {
       <section className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Welcome to Bell's Skating Rink</h1>
-            <p className="hero-subtitle">Family-owned roller skating fun in New Haven, Indiana</p>
+            <div className="eyebrow-divider">Fort Wayne · Since 1926 · Family Owned</div>
+            <h1 className="poster-headline hero-poster">
+              Roll, Glow <span className="script-accent gold">&amp; have</span><br />
+              Family Fun
+            </h1>
+            <p className="hero-subtitle">A neighborhood skating rink where the disco lights never quit, the pizza comes hot, and every family knows which lane is theirs. Three generations rolling on these floors.</p>
             <div className="hero-stats">
               <div className="stat">
-                <span className="stat-number">4.4</span>
-                <span className="stat-label">Google Rating</span>
+                <span className="meta-label">Google Rating</span>
+                <span className="stat-number">4.4 ★</span>
               </div>
               <div className="stat">
+                <span className="meta-label">Owned & Operated</span>
                 <span className="stat-number">Family</span>
-                <span className="stat-label">Owned & Operated</span>
               </div>
             </div>
             <div className="hero-cta">
-              <a href="tel:+12607498214" className="cta-primary">Call to Book</a>
-              <a href="#hours" className="cta-secondary">View Hours</a>
+              <a href="tel:+12607498214" className="btn-arrow solid">
+                Call to Book <span className="arrow">→</span>
+              </a>
+              <a href="#hours" className="btn-arrow outline">
+                View Hours <span className="arrow">→</span>
+              </a>
             </div>
           </div>
           <div className="hero-image">
@@ -199,6 +207,38 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Marquee scroller */}
+      <section className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          {/* Duplicated content for seamless loop */}
+          <span className="marquee-purple">DISCO NIGHTS</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">family fun,</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-gold">PIZZA &amp; PITCHERS</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">roll &amp; glow</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-pink">SKATE EVERY WEEK</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">since 1926</span>
+          <span className="marquee-star">★</span>
+          {/* Duplicate */}
+          <span className="marquee-purple">DISCO NIGHTS</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">family fun,</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-gold">PIZZA &amp; PITCHERS</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">roll &amp; glow</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-pink">SKATE EVERY WEEK</span>
+          <span className="marquee-star">★</span>
+          <span className="marquee-script">since 1926</span>
+          <span className="marquee-star">★</span>
         </div>
       </section>
 
@@ -232,7 +272,12 @@ const Home: React.FC = () => {
           <img src="/images/Valentines/groupogkidsskating.webp" alt="Kids skating at the rink" className="background-image" />
         </div>
         <div className="container">
-          <h2>What We Offer</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">What we do</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Skating, <span className="script-accent gold">snacks</span> & <span className="script-accent">good times</span>
+          </h2>
           <div className="services-wrapper">
             <div className="services-grid">
               <div className="service-card">
@@ -266,7 +311,12 @@ const Home: React.FC = () => {
       {/* Hours Section */}
       <section id="hours" className="hours">
         <div className="container">
-          <h2>Public Skating Sessions</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">When to roll</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Public skating <span className="script-accent">all week</span>
+          </h2>
           <div className="sessions-grid">
             <div className="session-card special">
               <div className="session-header">
@@ -357,7 +407,12 @@ const Home: React.FC = () => {
       {/* Gallery Section */}
       <section className="gallery-section">
         <div className="container">
-          <h2>See Our Rink in Action!</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">Photos</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            See the <span className="script-accent gold">magic</span> in motion
+          </h2>
           <div className="photo-grid-2x2">
             <img src="/images/Valentines/groupofkids.webp" alt="Group of kids at the rink" />
             <img src="/images/Valentines/DJ.webp" alt="DJ spinning tracks at the rink" />
@@ -373,20 +428,25 @@ const Home: React.FC = () => {
       {/* Location Section */}
       <section className="location">
         <div className="container">
-          <h2>Find Us</h2>
+          <div className="section-eyebrow">
+            <span className="eyebrow-tag">Visit</span>
+          </div>
+          <h2 className="poster-headline section-headline">
+            Where the <span className="script-accent">good times</span> roll
+          </h2>
           <div className="location-content">
             <div className="location-info">
               <div className="info-item">
-                <h3>📍 Address</h3>
-                <p>7009 IN-930<br/>Fort Wayne, IN 46803</p>
+                <span className="meta-label">Address</span>
+                <p className="info-value">7009 IN-930<br/>Fort Wayne, IN 46803</p>
               </div>
               <div className="info-item">
-                <h3>📞 Phone</h3>
-                <p><a href="tel:+12607498214">(260) 749-8214</a></p>
+                <span className="meta-label">Phone</span>
+                <p className="info-value"><a href="tel:+12607498214">(260) 749-8214</a></p>
               </div>
               <div className="info-item">
-                <h3>⭐ Reviews</h3>
-                <p>4.4 stars on Google<br/>Family-friendly & professional</p>
+                <span className="meta-label">Reviews</span>
+                <p className="info-value">4.4 stars on Google<br/>Family-friendly & professional</p>
               </div>
             </div>
           </div>
