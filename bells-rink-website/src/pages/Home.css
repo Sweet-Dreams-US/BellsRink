@@ -67,18 +67,19 @@
   letter-spacing: -0.03em;
 }
 
-/* Poster-style hero headline (Anton + Caveat pairing) */
+/* Poster-style hero headline (Fraunces heavy + DM Serif Display italic) */
 .hero-text .hero-poster {
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 400;
-  line-height: 0.95;
+  font-size: clamp(2.8rem, 6.5vw, 5.6rem);
+  font-weight: 900;
+  line-height: 0.98;
   margin-top: var(--space-md);
   margin-bottom: var(--space-lg);
+  letter-spacing: -0.025em;
 }
 
 .hero-text .hero-poster .script-accent {
-  font-size: 0.78em;
-  margin: 0 0.15em;
+  font-size: 1em;
+  margin: 0 0.1em;
 }
 
 .hero-text .hero-poster::after { display: none; }
@@ -113,10 +114,10 @@
 .stat-number {
   display: block;
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: 900;
   color: var(--color-gold-dark);
   font-family: var(--font-poster);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 

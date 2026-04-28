@@ -172,8 +172,8 @@ const Home: React.FC = () => {
           <div className="hero-text">
             <div className="eyebrow-divider">Fort Wayne · Since 1926 · Family Owned</div>
             <h1 className="poster-headline hero-poster">
-              Roll, Glow <span className="script-accent gold">&amp; have</span><br />
-              Family Fun
+              Roll, Glow &amp; <span className="script-accent gold">family fun</span><br />
+              On Wheels.
             </h1>
             <p className="hero-subtitle">A neighborhood skating rink where the disco lights never quit, the pizza comes hot, and every family knows which lane is theirs. Three generations rolling on these floors.</p>
             <div className="hero-stats">
@@ -276,7 +276,7 @@ const Home: React.FC = () => {
             <span className="eyebrow-tag">What we do</span>
           </div>
           <h2 className="poster-headline section-headline">
-            Skating, <span className="script-accent gold">snacks</span> & <span className="script-accent">good times</span>
+            Skating, snacks &amp; <span className="script-accent">good times.</span>
           </h2>
           <div className="services-wrapper">
             <div className="services-grid">
@@ -315,7 +315,7 @@ const Home: React.FC = () => {
             <span className="eyebrow-tag">When to roll</span>
           </div>
           <h2 className="poster-headline section-headline">
-            Public skating <span className="script-accent">all week</span>
+            Public skating, <span className="script-accent">all week long.</span>
           </h2>
           <div className="sessions-grid">
             <div className="session-card special">
@@ -411,7 +411,7 @@ const Home: React.FC = () => {
             <span className="eyebrow-tag">Photos</span>
           </div>
           <h2 className="poster-headline section-headline">
-            See the <span className="script-accent gold">magic</span> in motion
+            See the rink <span className="script-accent gold">in motion.</span>
           </h2>
           <div className="photo-grid-2x2">
             <img src="/images/Valentines/groupofkids.webp" alt="Group of kids at the rink" />
@@ -432,7 +432,7 @@ const Home: React.FC = () => {
             <span className="eyebrow-tag">Visit</span>
           </div>
           <h2 className="poster-headline section-headline">
-            Where the <span className="script-accent">good times</span> roll
+            Where the <span className="script-accent">good times</span> roll.
           </h2>
           <div className="location-content">
             <div className="location-info">

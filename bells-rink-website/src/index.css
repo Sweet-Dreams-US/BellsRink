@@ -112,27 +112,26 @@ h2::after {
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
 }
 
-/* Poster headline — Anton condensed bold for big statements */
+/* Poster headline — Fraunces heavy serif for big statements */
 .poster-headline {
   font-family: var(--font-poster);
-  font-weight: 400;
+  font-weight: 900;
+  font-variation-settings: 'opsz' 144, 'SOFT' 30;
   letter-spacing: var(--tracking-tight);
-  line-height: 0.95;
-  text-transform: uppercase;
+  line-height: 1;
   color: var(--text-primary);
 }
 
-/* Script accent — Caveat handwritten for emotional emphasis */
+/* Script accent — Fraunces italic for emotional emphasis */
 .script-accent {
   font-family: var(--font-script);
-  font-weight: 600;
-  font-style: normal;
-  color: var(--color-primary);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-primary-dark);
   text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.92em; /* slightly smaller balances visual weight with Anton */
+  letter-spacing: -0.01em;
+  font-size: 1em;
   display: inline-block;
-  transform: translateY(-0.05em);
 }
 
 .script-accent.gold { color: var(--color-gold-dark); }
@@ -223,7 +222,8 @@ h2::after {
   gap: 3rem;
   align-items: center;
   font-family: var(--font-poster);
-  font-size: 1.8rem;
+  font-weight: 900;
+  font-size: 1.6rem;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
@@ -234,10 +234,11 @@ h2::after {
 
 .marquee-script {
   font-family: var(--font-script);
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 400;
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   color: var(--color-gold-light, #ffd36e);
 }
 
