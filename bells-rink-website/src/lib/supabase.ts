@@ -3,7 +3,15 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY!
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// On the shared FreeWebsites project Bells Rink lives in the `bells` schema with
+// `bells-` prefixed buckets. Unset, these fall back to the original names.
+const dbSchema = process.env.REACT_APP_SUPABASE_DB_SCHEMA || 'public'
+export const PHOTOS_BUCKET = process.env.REACT_APP_SUPABASE_PHOTOS_BUCKET || 'photos'
+const COMMUNITY_BUCKET = process.env.REACT_APP_SUPABASE_COMMUNITY_BUCKET || 'community-uploads'
+
+export const supabase = createClient<any, any>(supabaseUrl, supabaseAnonKey, {
+  db: { schema: dbSchema },
+})
 
 export type Photo = {
   id: string
@@ -42,7 +50,7 @@ export async function getPhotos(category?: string): Promise<Photo[]> {
  * Get a public URL for a photo in the "photos" storage bucket.
  */
 export function getPhotoUrl(storagePath: string): string {
-  const { data } = supabase.storage.from('photos').getPublicUrl(storagePath)
+  const { data } = supabase.storage.from(PHOTOS_BUCKET).getPublicUrl(storagePath)
   return data.publicUrl
 }
 
@@ -59,7 +67,7 @@ export async function uploadCommunityPhoto(
   const path = `${timestamp}_${safeName}`
 
   const { error } = await supabase.storage
-    .from('community-uploads')
+    .from(COMMUNITY_BUCKET)
     .upload(path, file, {
       cacheControl: '3600',
       upsert: false,

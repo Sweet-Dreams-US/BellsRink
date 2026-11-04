@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { supabase, PHOTOS_BUCKET } from './supabase'
 
 // ── Types ──
 
@@ -228,6 +228,6 @@ export async function getAdjacentPosts(publishedAt: string): Promise<AdjacentPos
  */
 export function getBlogImageUrl(path: string): string {
   if (path.startsWith('http')) return path
-  const { data } = supabase.storage.from('photos').getPublicUrl(path)
+  const { data } = supabase.storage.from(PHOTOS_BUCKET).getPublicUrl(path)
   return data.publicUrl
 }
