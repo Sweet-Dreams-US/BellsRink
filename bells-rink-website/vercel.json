@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "src": "^/blog/(?:health-benefits-of-roller-skating|plan-perfect-birthday-party-skating-rink|beginners-guide-to-roller-skating|family-activities-fort-wayne-new-haven-indiana|why-roller-skating-is-making-a-comeback|how-to-choose-right-roller-skates|date-night-roller-skating-couples|roller-skating-safety-tips-parents|history-of-roller-skating-disco-to-today|themed-skating-night-ideas)/?$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/blog/?$",
+      "dest": "/blog/index.html",
+      "check": true
+    },
+    {
+      "src": "^/blog/([^/]+)/?$",
+      "dest": "/blog/$1/index.html",
+      "check": true
+    },
+    {
+      "src": "^/blog/.+$",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ]
+}

@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bell's Skating Rink</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...)
-      var pathSegmentsToKeep = 0;
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Page not found | Bell's Skating Rink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #1a1a2e;
+        background: #f6f5fb;
+        text-align: center;
+      }
+      main { max-width: 480px; }
+      .brand {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-style: italic;
+        font-size: 1.6rem;
+        color: #1a1a2e;
+        text-decoration: none;
+      }
+      h1 {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-weight: 400;
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin: 1.5rem 0 0.75rem;
+      }
+      p { color: #5a5a7a; line-height: 1.6; margin: 0 0 1.75rem; }
+      .actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+      a.button {
+        display: inline-block;
+        padding: 0.85rem 1.8rem;
+        border-radius: 100px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #fff;
+        background: #7c6bf5;
+        box-shadow: 0 4px 20px rgba(124, 107, 245, 0.2);
+      }
+      a.button.alt { background: #ff6b8a; box-shadow: 0 4px 20px rgba(255, 107, 138, 0.2); }
+    </style>
   </head>
   <body>
+    <main>
+      <a class="brand" href="/">Bell's Skating Rink</a>
+      <h1>Page not found</h1>
+      <p>That page is not here. Head back to the home page or get in touch.</p>
+      <div class="actions">
+        <a class="button" href="/">Back to home</a>
+        <a class="button alt" href="/contact">Contact us</a>
+      </div>
+    </main>
   </body>
 </html>

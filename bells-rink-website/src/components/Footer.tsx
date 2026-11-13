@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { hasBlogPosts } from '../lib/blog';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -29,7 +30,7 @@ const Footer: React.FC = () => {
             <li><Link to="/events">Events</Link></li>
             <li><Link to="/parties">Birthday Parties</Link></li>
             <li><Link to="/policies">Safety & Policies</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
+            {hasBlogPosts && <li><Link to="/blog">Blog</Link></li>}
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>

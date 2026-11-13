@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { hasBlogPosts } from '../lib/blog';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -57,6 +58,15 @@ const Navbar: React.FC = () => {
           >
             Parties
           </Link>
+          {hasBlogPosts && (
+            <Link
+              to="/blog"
+              className={`nav-link ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+              onClick={handleLinkClick}
+            >
+              Blog
+            </Link>
+          )}
           <Link
             to="/contact"
             className={`nav-link ${isActive('/contact')}`}

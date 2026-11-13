@@ -11,6 +11,10 @@
 # production
 /build
 
+# blog build output (written by scripts/build-blog.mjs from content/blog)
+/src/generated
+/public/blog-images
+
 # misc
 .DS_Store
 .env.local
