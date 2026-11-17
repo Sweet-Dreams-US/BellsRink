@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { track } from '../lib/analytics';
+import { saveSubmission } from '../lib/forms';
+import { useHours } from '../lib/hours';
+import HoursList from '../components/HoursList';
 import './Contact.css';
 
 const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzpxgZEf9siRcwvGQbMkudtZ9SzV3FSaeItjWFB9Qm7ZhVJizM5NZDkojakcUvT0Sn7BQ/exec';
@@ -17,6 +20,7 @@ const Contact: React.FC = () => {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'succeeded' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const hours = useHours();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,25 +48,45 @@ const Contact: React.FC = () => {
     setErrorMessage('');
 
     try {
-      await fetch(GOOGLE_SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain'
-        },
-        body: JSON.stringify({
-          'First Name': formData.firstName,
-          'Last Name': formData.lastName,
-          'Birthday': formData.birthday,
-          'Phone': formData.phone,
-          'Email': formData.email,
-          'Subject': formData.subject,
-          'How did you hear about us?': formData.howDidYouHear,
-          'Message': formData.message
+      // Two destinations: the Google Sheet the rink has always used, and the admin inbox.
+      const [sheet, inbox] = await Promise.allSettled([
+        fetch(GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain'
+          },
+          body: JSON.stringify({
+            'First Name': formData.firstName,
+            'Last Name': formData.lastName,
+            'Birthday': formData.birthday,
+            'Phone': formData.phone,
+            'Email': formData.email,
+            'Subject': formData.subject,
+            'How did you hear about us?': formData.howDidYouHear,
+            'Message': formData.message
+          })
+        }),
+        saveSubmission({
+          form: 'contact',
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          extra: {
+            'Birthday': formData.birthday,
+            'Heard about us from': formData.howDidYouHear
+          }
         })
-      });
+      ]);
 
-      // With no-cors mode, we can't read the response, so we assume success
+      // With no-cors mode we can't read the sheet's response, so a completed request counts.
+      const reachedInbox = inbox.status === 'fulfilled' && inbox.value;
+      if (sheet.status === 'rejected' && !reachedInbox) {
+        throw new Error('The message was not delivered anywhere');
+      }
+
       setStatus('succeeded');
       track('Contact Form Submit', { subject: formData.subject || 'unspecified' });
     } catch (error) {
@@ -153,27 +177,11 @@ const Contact: React.FC = () => {
                 <span className="meta-label">Hours</span>
                 <h3>When we're open</h3>
                 <div className="hours-list">
-                  <div className="hour-row">
-                    <span>Tuesday:</span>
-                    <span>8 PM - 10:30 PM (21+)</span>
-                  </div>
-                  <div className="hour-row">
-                    <span>Friday:</span>
-                    <span>6:30 PM - 9:05 PM</span>
-                  </div>
-                  <div className="hour-row">
-                    <span>Saturday:</span>
-                    <span>12 PM - 3 PM<br/>6:30 PM - 9 PM</span>
-                  </div>
-                  <div className="hour-row">
-                    <span>Sunday:</span>
-                    <span>12 PM - 3 PM</span>
-                  </div>
-                  <div className="hour-row closed">
-                    <span>Mon, Wed, Thu:</span>
-                    <span>Closed</span>
-                  </div>
+                  <HoursList rowClassName="hour-row" />
                 </div>
+                {hours.specials.map((special, index) => (
+                  <p className="card-note" key={`${index}-${special}`}>{special}</p>
+                ))}
               </div>
             </div>
 

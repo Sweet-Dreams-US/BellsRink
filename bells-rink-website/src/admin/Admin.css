@@ -1,0 +1,576 @@
+/* ═══════════════════════════════════════════════
+   /admin — the owner's page. Plain, roomy and readable on a phone.
+   Everything is scoped under .admin so nothing leaks into the public site.
+   ═══════════════════════════════════════════════ */
+
+.admin {
+  --admin-ink: #1a1a2e;
+  --admin-muted: #5a5a7a;
+  --admin-line: rgba(91, 77, 199, 0.18);
+  --admin-accent: #5b4dc7;
+  --admin-accent-strong: #4a3db0;
+  --admin-danger: #b3263f;
+  --admin-good: #177a45;
+
+  min-height: 100vh;
+  background: #f6f5fb;
+  color: var(--admin-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* The site puts a gold underline after every h2; not here. */
+.admin h2::after {
+  display: none;
+}
+
+.admin h1,
+.admin h2,
+.admin h3 {
+  letter-spacing: -0.01em;
+}
+
+.admin-muted {
+  color: var(--admin-muted);
+}
+
+.admin-hint {
+  color: var(--admin-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Form controls ── */
+.admin label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.9rem 0 0.3rem;
+}
+
+.admin input[type='text'],
+.admin input[type='password'],
+.admin input[type='time'],
+.admin select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(26, 26, 46, 0.28);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--admin-ink);
+  font: inherit;
+  font-size: 1rem; /* 16px keeps iPhones from zooming in on focus */
+}
+
+.admin input:focus-visible,
+.admin select:focus-visible,
+.admin button:focus-visible,
+.admin a:focus-visible {
+  outline: 3px solid rgba(91, 77, 199, 0.45);
+  outline-offset: 2px;
+}
+
+.admin-check {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400 !important;
+  color: var(--admin-muted);
+  cursor: pointer;
+}
+
+.admin-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--admin-accent);
+}
+
+/* ── Buttons ── */
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(26, 26, 46, 0.28);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--admin-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-btn:hover:not(:disabled) {
+  background: #f0eef9;
+  border-color: var(--admin-accent);
+}
+
+.admin-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.admin-btn.primary {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: #fff;
+}
+
+.admin-btn.primary:hover:not(:disabled) {
+  background: var(--admin-accent-strong);
+  border-color: var(--admin-accent-strong);
+}
+
+.admin-btn.quiet {
+  border-color: transparent;
+  background: transparent;
+  color: var(--admin-accent);
+}
+
+.admin-btn.danger {
+  min-height: 38px;
+  padding: 0.3rem 0.8rem;
+  border-color: transparent;
+  background: transparent;
+  color: var(--admin-danger);
+  font-size: 0.9rem;
+}
+
+.admin-btn.danger:hover:not(:disabled) {
+  background: rgba(179, 38, 63, 0.08);
+  border-color: rgba(179, 38, 63, 0.3);
+}
+
+.admin-alert {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(179, 38, 63, 0.35);
+  border-radius: 10px;
+  background: rgba(179, 38, 63, 0.06);
+  color: var(--admin-danger);
+  font-weight: 500;
+}
+
+/* ── Login ── */
+.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 1.75rem;
+  background: #fff;
+  border: 1px solid var(--admin-line);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(91, 77, 199, 0.12);
+  text-align: left;
+}
+
+.admin-login-mascot {
+  display: block;
+  height: 96px;
+  width: auto;
+  margin: 0 auto 0.75rem;
+}
+
+.admin-login-card h1 {
+  font-family: var(--font-poster);
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
+.admin-login-card > .admin-muted {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.admin-login-card .admin-check {
+  margin-top: 0.6rem;
+}
+
+.admin-login-card .admin-btn.primary {
+  width: 100%;
+  margin-top: 1.25rem;
+  min-height: 50px;
+  font-size: 1.05rem;
+}
+
+.admin-back {
+  display: block;
+  margin-top: 1.1rem;
+  text-align: center;
+  color: var(--admin-muted);
+  font-size: 0.9rem;
+}
+
+/* ── Top bar and tabs ── */
+.admin-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.admin-bar-inner,
+.admin-tabs,
+.admin-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.admin-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.6rem;
+}
+
+.admin-brand {
+  font-family: var(--font-poster);
+  font-weight: 900;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.admin-brand span {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--admin-accent);
+  background: rgba(91, 77, 199, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+.admin-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.admin-bar-actions a {
+  color: var(--admin-muted);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.admin-tabs button {
+  min-height: 46px;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--admin-muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-tabs button:hover {
+  color: var(--admin-ink);
+}
+
+.admin-tabs button[aria-selected='true'] {
+  color: var(--admin-accent);
+  border-bottom-color: var(--admin-accent);
+}
+
+.admin-main {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Section heading ── */
+.admin-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-heading h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.15rem;
+}
+
+.admin-subheading {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.6rem;
+}
+
+/* ── Cards ── */
+.admin-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-card {
+  background: #fff;
+  border: 1px solid var(--admin-line);
+  border-radius: 16px;
+  padding: 1.1rem 1.25rem;
+}
+
+.admin-card > label:first-child {
+  margin-top: 0;
+}
+
+.admin-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.admin-card-top h3 {
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-card-top time {
+  color: var(--admin-muted);
+  font-size: 0.85rem;
+}
+
+/* ── Messages ── */
+.admin-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.admin-chip {
+  min-height: 40px;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(26, 26, 46, 0.28);
+  border-radius: 100px;
+  background: #fff;
+  color: var(--admin-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.admin-chip[aria-pressed='true'] {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: #fff;
+}
+
+.admin-count {
+  color: var(--admin-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-badge {
+  flex-shrink: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-badge.is-contact {
+  background: rgba(91, 77, 199, 0.12);
+  color: var(--admin-accent-strong);
+}
+
+.admin-badge.is-newsletter {
+  background: rgba(240, 168, 48, 0.2);
+  color: #7a4f05;
+}
+
+.admin-subject {
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.admin-message {
+  margin-top: 0.35rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.admin-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.75rem;
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--admin-line);
+}
+
+.admin-fields dt {
+  color: var(--admin-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-fields dd {
+  overflow-wrap: anywhere;
+}
+
+.admin-fields a {
+  color: var(--admin-accent);
+  font-weight: 500;
+}
+
+.admin-empty {
+  padding: 2.5rem 1.25rem;
+  background: #fff;
+  border: 1px dashed var(--admin-line);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.admin-empty p:first-child {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.admin-more {
+  width: 100%;
+}
+
+/* ── Hours editor ── */
+.admin-session-summary {
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding-top: 0.3rem;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 0 0.75rem;
+}
+
+.admin-grid.three {
+  grid-template-columns: 1.3fr 1fr 1fr;
+}
+
+.admin-grid.two {
+  grid-template-columns: 1fr 1.6fr;
+}
+
+.admin-special {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-special input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Fixed to the bottom of the screen so Save is always in reach. (The site sets
+   overflow-x: hidden on html and body, which stops position: sticky from working.) */
+.admin-savebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid var(--admin-line);
+  box-shadow: 0 -6px 20px rgba(26, 26, 46, 0.08);
+}
+
+.admin-savebar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 748px;
+  margin: 0 auto;
+}
+
+/* Room for the last button to scroll clear of the save bar */
+.admin-hours {
+  padding-bottom: 5rem;
+}
+
+.admin-savebar-status {
+  font-size: 0.9rem;
+  color: var(--admin-muted);
+}
+
+.admin-savebar-status .bad {
+  color: var(--admin-danger);
+  font-weight: 600;
+}
+
+.admin-savebar-status .good {
+  color: var(--admin-good);
+  font-weight: 600;
+}
+
+.admin-savebar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ── Phones ── */
+@media (max-width: 560px) {
+  .admin-grid.three {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-grid.three > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .admin-grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-bar-actions a {
+    display: none;
+  }
+
+  .admin-savebar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .admin-hours {
+    padding-bottom: 8rem;
+  }
+
+  .admin-savebar-actions .admin-btn {
+    flex: 1;
+  }
+}

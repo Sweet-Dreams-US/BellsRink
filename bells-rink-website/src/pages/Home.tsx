@@ -1,8 +1,11 @@
 import React, { useMemo } from 'react';
 import Newsletter from '../components/Newsletter';
+import { formatRange, sessionVariant, useHours } from '../lib/hours';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const hours = useHours();
+
   const allSpecialEvents = useMemo(() => {
     return [
       {
@@ -312,97 +315,48 @@ const Home: React.FC = () => {
       <section id="hours" className="hours">
         <div className="container">
           <div className="section-eyebrow">
-            <span className="eyebrow-tag">Summer hours</span>
+            <span className="eyebrow-tag">Skate session hours</span>
           </div>
           <h2 className="poster-headline section-headline">
-            Summer skating, <span className="script-accent">all week long.</span>
+            Skate sessions, <span className="script-accent">every week.</span>
           </h2>
+          {hours.season && <p className="hours-season">{hours.season}</p>}
           <div className="sessions-grid">
-            <div className="session-card special">
-              <div className="session-header">
-                <h3>Tuesday Night Adult Skate/Dance</h3>
-                <div className="session-time">8:00 PM - 10:30 PM</div>
+            {hours.sessions.map((session) => (
+              <div key={session.id} className={`session-card ${sessionVariant(session.name)}`.trim()}>
+                <div className="session-header">
+                  <h3>{session.day} {session.name}</h3>
+                  <div className="session-time">{formatRange(session.start, session.end)}</div>
+                </div>
+                {session.price && <div className="session-price">{session.price}</div>}
+                {session.details && <p>{session.details}</p>}
               </div>
-              <div className="session-price">$10 Admission</div>
-              <p>21+ Only • DJ Krazy K • Includes skate rental</p>
-            </div>
+            ))}
 
-            <div className="session-card deal">
-              <div className="session-header">
-                <h3>Wednesday Dollar Night</h3>
-                <div className="session-time">6:00 PM - 8:00 PM</div>
-              </div>
-              <div className="session-pricing">
-                <div className="session-price">$1 Admission</div>
-                <div className="family-deal">
-                  <strong>$1 Skate Rental</strong>
-                  <p>The best deal in town!</p>
+            {hours.sessions.length === 0 && (
+              <div className="session-card">
+                <div className="session-header">
+                  <h3>Call for current hours</h3>
+                  <div className="session-time"><a href="tel:+12607498214">(260) 749-8214</a></div>
                 </div>
               </div>
-            </div>
-
-            <div className="session-card popular">
-              <div className="session-header">
-                <h3>Friday Night Family Pizza Party</h3>
-                <div className="session-time">6:30 PM - 9:00 PM</div>
-              </div>
-              <div className="session-pricing">
-                <div className="session-price">$10 per skater</div>
-                <div className="family-deal">
-                  <strong>Family of 5: $40</strong>
-                  <p>Includes pizza & pitcher of pop!</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="session-card">
-              <div className="session-header">
-                <h3>Saturday Afternoon Family Matinee</h3>
-                <div className="session-time">12:30 PM - 3:00 PM</div>
-              </div>
-              <div className="session-price">$8 per skater</div>
-              <p>Includes regular skate rental</p>
-            </div>
-
-            <div className="session-card glow">
-              <div className="session-header">
-                <h3>Saturday Night with DJ Krazy K</h3>
-                <div className="session-time">8:00 PM - 10:00 PM</div>
-              </div>
-              <div className="session-price">$10 Admission</div>
-              <div className="special-feature">
-                <span className="glow-icon">✨</span>
-                <p>Starting 6/27 • Skates included</p>
-              </div>
-            </div>
-
-            <div className="session-card popular">
-              <div className="session-header">
-                <h3>Sunday Funday Family Pizza Party</h3>
-                <div className="session-time">12:30 PM - 3:00 PM</div>
-              </div>
-              <div className="session-pricing">
-                <div className="session-price">$10 per skater</div>
-                <div className="family-deal">
-                  <strong>Family of 5: $30</strong>
-                  <p>Includes pizza & pitcher of pop!</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="session-card special">
-              <div className="session-header">
-                <h3>Sunday Adult Skate Night</h3>
-                <div className="session-time">8:00 PM - 11:00 PM</div>
-              </div>
-              <div className="session-price">$10 Admission</div>
-              <p>18+ Only • DJ Krazy K • Includes skate rental</p>
-            </div>
+            )}
 
             <div className="session-character-only">
               <img src="/images/roofuseatingpizza.png" alt="Roofus eating pizza" className="session-character-card" />
             </div>
           </div>
+
+          {hours.specials.length > 0 && (
+            <div className="hours-specials">
+              <h3>Specials</h3>
+              <ul>
+                {hours.specials.map((special, index) => (
+                  <li key={`${index}-${special}`}>{special}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="upcoming-sessions">
             <h3>Special Events This Month</h3>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { track } from '../lib/analytics';
+import { saveSubmission } from '../lib/forms';
 import './Newsletter.css';
 
 const Newsletter: React.FC = () => {
@@ -42,21 +43,28 @@ const Newsletter: React.FC = () => {
     };
 
     try {
-      const response = await fetch('https://formspree.io/f/xldwzory', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email || 'Not provided',
-          phone: phone || 'Not provided',
-          signup_types: signupTypes,
-          type: 'newsletter_signup',
-          timestamp: new Date().toISOString()
-        })
-      });
+      // Two destinations: Formspree, and the admin inbox.
+      const [formspree, inbox] = await Promise.allSettled([
+        fetch('https://formspree.io/f/xldwzory', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email || 'Not provided',
+            phone: phone || 'Not provided',
+            signup_types: signupTypes,
+            type: 'newsletter_signup',
+            timestamp: new Date().toISOString()
+          })
+        }),
+        saveSubmission({ form: 'newsletter', email, phone })
+      ]);
+      const delivered =
+        (formspree.status === 'fulfilled' && formspree.value.ok) ||
+        (inbox.status === 'fulfilled' && inbox.value);
 
-      if (response.ok) {
+      if (delivered) {
         setStatus('success');
         setMessage('Thank you for subscribing! We\'ll keep you updated on special events and deals.');
         setEmail('');

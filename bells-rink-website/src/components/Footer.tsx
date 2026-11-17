@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { hasBlogPosts } from '../lib/blog';
+import HoursList from './HoursList';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -38,26 +39,7 @@ const Footer: React.FC = () => {
         <div className="footer-section">
           <h4>Hours</h4>
           <div className="footer-hours">
-            <div className="hour-item">
-              <span>Tuesday:</span>
-              <span>8 PM - 10:30 PM (21+)</span>
-            </div>
-            <div className="hour-item">
-              <span>Friday:</span>
-              <span>6:30 PM - 9:05 PM</span>
-            </div>
-            <div className="hour-item">
-              <span>Saturday:</span>
-              <span>12 PM - 3 PM<br/>6:30 PM - 9 PM</span>
-            </div>
-            <div className="hour-item">
-              <span>Sunday:</span>
-              <span>12 PM - 3 PM</span>
-            </div>
-            <div className="hour-item closed">
-              <span>Mon, Wed, Thu:</span>
-              <span>Closed</span>
-            </div>
+            <HoursList rowClassName="hour-item" />
           </div>
         </div>
 
